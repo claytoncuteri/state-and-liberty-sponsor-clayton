@@ -337,13 +337,6 @@ export default function PitchDeck() {
             <p className="text-white text-sm font-medium mb-3">Navigation Tips</p>
             <div className="space-y-2 text-xs">
               <div className="flex items-center gap-2 text-slate-light">
-                <div className="flex gap-1">
-                  <span className="bg-navy border border-crimson px-1.5 py-0.5 rounded text-crimson font-mono font-bold">←</span>
-                  <span className="bg-navy border border-crimson px-1.5 py-0.5 rounded text-crimson font-mono font-bold">→</span>
-                </div>
-                <span>Navigate slides</span>
-              </div>
-              <div className="flex items-center gap-2 text-slate-light">
                 <Grid className="w-4 h-4 text-crimson flex-shrink-0" />
                 <span>Grid view</span>
               </div>
@@ -354,6 +347,13 @@ export default function PitchDeck() {
               <div className="flex items-center gap-2 text-slate-light">
                 <Download className="w-4 h-4 text-crimson flex-shrink-0" />
                 <span>Download PDF</span>
+              </div>
+              <div className="flex items-center gap-2 text-slate-light">
+                <div className="flex gap-1">
+                  <span className="bg-navy border border-crimson px-1.5 py-0.5 rounded text-crimson font-mono font-bold">←</span>
+                  <span className="bg-navy border border-crimson px-1.5 py-0.5 rounded text-crimson font-mono font-bold">→</span>
+                </div>
+                <span>Navigate slides</span>
               </div>
             </div>
             <Button 
