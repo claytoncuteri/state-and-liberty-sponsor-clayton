@@ -34,12 +34,23 @@ Preferred communication style: Simple, everyday language.
 - **Current Usage**: Basic user schema exists but pitch deck is primarily static content
 - **Storage Interface**: Abstracted storage layer in `server/storage.ts` with in-memory fallback
 
+### Routing Structure
+- **Landing Page** (`/`): Entry point with branding and three action buttons:
+  - "Start Presentation" → navigates to `/presentation?mode=slide`
+  - "View All Slides" → navigates to `/presentation?mode=scroll`
+  - "Download PDF" → navigates to `/presentation?download=true` (auto-triggers export)
+- **Pitch Deck** (`/presentation`): Main presentation view with URL parameter support
+  - `mode=slide` or `mode=scroll` sets initial view mode
+  - `download=true` automatically triggers PDF export on load
+
 ### Key Features
+- **Landing Page**: Professional entry point with State & Liberty logo, Clayton Cuteri branding, and three action CTAs
 - **Dual View Modes**: Slideshow navigation with keyboard controls (← → Space) and scrollable grid view
 - **PDF Export**: Client-side PDF generation using html2canvas and jsPDF
-- **Fullscreen Mode**: Browser fullscreen API integration
+- **Fullscreen Mode**: Browser fullscreen API integration with auto-hiding navigation
 - **Responsive Design**: Adapts from 1920x1080 presentation ratio to mobile screens
 - **Animated Statistics**: Count-up animations triggered on scroll/slide visibility
+- **Navigation Tips**: Popup showing keyboard shortcuts with styled arrow keys
 
 ## External Dependencies
 
