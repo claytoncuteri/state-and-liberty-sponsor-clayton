@@ -26,14 +26,14 @@ export function Slide04Clayton({ isActive = true }: SlideProps) {
       <SlideTitle>Who is Clayton Cuteri?</SlideTitle>
       <SlideSubtitle>Spiritual Political Personality | Food Freedom Advocate</SlideSubtitle>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 mt-6 flex-1">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 mt-4 flex-1">
         <motion.div
           className="flex justify-center items-start"
           initial={{ opacity: 0, scale: 0.9 }}
           animate={isActive ? { opacity: 1, scale: 1 } : {}}
           transition={{ duration: 0.6, delay: 0.3 }}
         >
-          <div className="w-72 h-72 lg:w-96 lg:h-96 rounded-xl overflow-hidden border-4 border-crimson shadow-2xl shadow-crimson/20">
+          <div className="w-48 h-48 lg:w-64 lg:h-64 rounded-xl overflow-hidden border-4 border-crimson shadow-2xl shadow-crimson/20">
             <img
               src={claytonHeadshot}
               alt="Clayton Cuteri Professional Headshot"
@@ -47,16 +47,16 @@ export function Slide04Clayton({ isActive = true }: SlideProps) {
           animate={isActive ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.4 }}
         >
-          <h4 className="text-xl lg:text-2xl font-bold text-white mb-5">Background</h4>
+          <h4 className="text-lg lg:text-xl font-bold text-white mb-3">Background</h4>
           <BulletList items={background} />
 
-          <h4 className="text-xl lg:text-2xl font-bold text-white mb-5 mt-8">The Connection</h4>
+          <h4 className="text-lg lg:text-xl font-bold text-white mb-3 mt-4">The Connection</h4>
           <BulletList items={connection} />
         </motion.div>
       </div>
 
-      <div className="bg-crimson/10 border-l-4 border-crimson p-6 lg:p-8 mt-8" data-testid="quote-clayton">
-        <p className="text-lg lg:text-xl font-medium text-white leading-relaxed">
+      <div className="bg-crimson/10 border-l-4 border-crimson p-4 lg:p-6 mt-4" data-testid="quote-clayton">
+        <p className="text-base lg:text-lg font-medium text-white leading-relaxed">
           "What you put IN your body matters. What you put ON your body matters. Both require the same discipline, quality, and freedom of choice."
         </p>
       </div>

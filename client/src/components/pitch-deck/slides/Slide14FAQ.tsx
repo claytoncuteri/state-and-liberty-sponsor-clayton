@@ -16,14 +16,14 @@ function QAItem({ question, answer, delay, isActive }: QAItemProps) {
   const testId = question.toLowerCase().replace(/[^a-z]/g, "-").replace(/-+/g, "-").slice(0, 30);
   return (
     <motion.div
-      className="mb-8"
+      className="mb-4"
       initial={{ opacity: 0, y: 20 }}
       animate={isActive ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.5, delay }}
       data-testid={`faq-${testId}`}
     >
-      <p className="text-xl lg:text-2xl font-bold text-crimson mb-3">{question}</p>
-      <p className="text-lg lg:text-xl text-slate-text leading-relaxed" dangerouslySetInnerHTML={{ __html: answer }} />
+      <p className="text-base lg:text-lg font-bold text-crimson mb-2">{question}</p>
+      <p className="text-sm lg:text-base text-slate-text leading-relaxed" dangerouslySetInnerHTML={{ __html: answer }} />
     </motion.div>
   );
 }
@@ -50,7 +50,7 @@ export function Slide14FAQ({ isActive = true }: SlideProps) {
       <SlideTitle>Anticipating Your Questions</SlideTitle>
       <SlideSubtitle>Addressing Potential Concerns</SlideSubtitle>
 
-      <div className="mt-8 flex-1">
+      <div className="mt-4 flex-1">
         {faqs.map((faq, index) => (
           <QAItem
             key={index}

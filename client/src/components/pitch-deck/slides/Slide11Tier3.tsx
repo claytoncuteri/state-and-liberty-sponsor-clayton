@@ -24,29 +24,29 @@ export function Slide11Tier3({ isActive = true }: SlideProps) {
 
       <div className="flex-1 flex flex-col justify-center">
         <motion.div
-          className="bg-crimson/10 rounded-2xl p-8 lg:p-12 border-2 border-crimson max-w-4xl mx-auto w-full relative"
+          className="bg-crimson/10 rounded-xl p-6 lg:p-8 border-2 border-crimson max-w-3xl mx-auto w-full relative"
           initial={{ opacity: 0, y: 30 }}
           animate={isActive ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.3 }}
           data-testid="tier-3-card"
         >
-          <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-crimson text-white px-4 py-1 rounded-full text-sm font-bold flex items-center gap-2">
-            <Star className="w-4 h-4" />
+          <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-crimson text-white px-3 py-0.5 rounded-full text-xs font-bold flex items-center gap-1">
+            <Star className="w-3 h-3" />
             RECOMMENDED
           </div>
 
-          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-8 gap-4 mt-4">
-            <h3 className="text-3xl lg:text-4xl font-black text-white">TIER 3</h3>
+          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-4 gap-2 mt-2">
+            <h3 className="text-2xl lg:text-3xl font-black text-white">TIER 3</h3>
             <div className="text-right">
-              <div className="text-4xl lg:text-5xl font-black text-crimson">$15-25K</div>
-              <div className="text-lg text-slate-light">per month</div>
+              <div className="text-3xl lg:text-4xl font-black text-crimson">$15-25K</div>
+              <div className="text-sm text-slate-light">per month</div>
             </div>
           </div>
 
           <BulletList items={tier3Items} />
 
           <motion.p
-            className="text-sm text-slate-light mt-6 italic text-center"
+            className="text-xs text-slate-light mt-4 italic text-center"
             initial={{ opacity: 0 }}
             animate={isActive ? { opacity: 1 } : {}}
             transition={{ duration: 0.5, delay: 0.6 }}

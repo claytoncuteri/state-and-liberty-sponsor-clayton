@@ -25,7 +25,7 @@ export function StatBox({
   return (
     <motion.div
       className={`
-        bg-white/5 border rounded-xl p-10 text-center transition-all duration-300 overflow-visible
+        bg-white/5 border rounded-xl p-4 lg:p-6 text-center transition-all duration-300 overflow-visible
         hover-elevate active-elevate-2
         ${highlighted ? "border-2 border-crimson bg-crimson/10" : "border-white/10"}
       `}
@@ -34,7 +34,7 @@ export function StatBox({
       transition={{ duration: 0.5, delay: delay * 0.1, ease: "easeOut" }}
       data-testid={`stat-box-${label.toLowerCase().replace(/\s+/g, "-")}`}
     >
-      <div className="text-crimson font-black text-5xl mb-2">
+      <div className="text-crimson font-black text-3xl lg:text-4xl mb-1">
         <AnimatedNumber
           value={number}
           suffix={suffix}
@@ -43,12 +43,12 @@ export function StatBox({
           duration={1.2}
         />
       </div>
-      <div className="text-slate-light text-xl font-light">
+      <div className="text-slate-light text-sm lg:text-base font-light">
         {label}
         {sublabel && (
           <>
             <br />
-            <span className="text-base">{sublabel}</span>
+            <span className="text-xs lg:text-sm">{sublabel}</span>
           </>
         )}
       </div>

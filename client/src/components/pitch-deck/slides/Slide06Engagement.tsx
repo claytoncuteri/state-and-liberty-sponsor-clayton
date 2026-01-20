@@ -15,21 +15,20 @@ export function Slide06Engagement({ isActive = true }: SlideProps) {
       <SlideSubtitle>Elite Engagement Metrics</SlideSubtitle>
 
       <motion.div
-        className="bg-crimson/15 border-2 border-crimson rounded-2xl p-8 lg:p-12 text-center my-6"
+        className="bg-crimson/15 border-2 border-crimson rounded-xl p-4 lg:p-8 text-center my-4"
         initial={{ opacity: 0, scale: 0.95 }}
         animate={isActive ? { opacity: 1, scale: 1 } : {}}
         transition={{ duration: 0.6, delay: 0.3 }}
         data-testid="stat-engagement-rate"
       >
-        <p className="text-xl lg:text-2xl text-slate-light mb-4">Instagram Engagement Rate</p>
-        <div className="text-7xl lg:text-9xl font-black text-crimson leading-none" data-testid="text-engagement-value">
+        <p className="text-lg lg:text-xl text-slate-light mb-2">Instagram Engagement Rate</p>
+        <div className="text-5xl lg:text-7xl font-black text-crimson leading-none" data-testid="text-engagement-value">
           <AnimatedNumber value={17.7} suffix="%" isActive={isActive} duration={1.5} />
         </div>
-        <p className="text-xl lg:text-2xl text-white mt-4">Industry Standard: 1-3%</p>
-        <p className="text-lg text-slate-light mt-2 italic">Performance: 6-10x above platform averages</p>
+        <p className="text-base lg:text-lg text-white mt-2">Industry Standard: 1-3% | <span className="italic text-slate-light">6-10x above average</span></p>
       </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-10 mt-6">
+      <div className="grid grid-cols-3 gap-4 lg:gap-6 mt-4">
         <StatBox
           number={11600000}
           label="Instagram Interactions"
@@ -55,7 +54,7 @@ export function Slide06Engagement({ isActive = true }: SlideProps) {
       </div>
 
       <motion.p
-        className="text-center text-2xl lg:text-3xl font-bold text-white mt-8"
+        className="text-center text-lg lg:text-xl font-bold text-white mt-4"
         initial={{ opacity: 0, y: 20 }}
         animate={isActive ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.5, delay: 0.8 }}

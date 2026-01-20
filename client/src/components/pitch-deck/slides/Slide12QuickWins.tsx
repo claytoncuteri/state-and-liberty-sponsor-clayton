@@ -28,43 +28,43 @@ export function Slide12QuickWins({ isActive = true }: SlideProps) {
       <SlideSubtitle>Time-Sensitive Opportunities</SlideSubtitle>
 
       <motion.div
-        className="bg-gradient-to-br from-crimson/20 to-crimson/5 border-2 border-crimson rounded-2xl p-6 lg:p-10 my-6"
+        className="bg-gradient-to-br from-crimson/20 to-crimson/5 border-2 border-crimson rounded-xl p-4 lg:p-6 my-4"
         initial={{ opacity: 0, scale: 0.95 }}
         animate={isActive ? { opacity: 1, scale: 1 } : {}}
         transition={{ duration: 0.5, delay: 0.3 }}
         data-testid="callout-friday-podcast"
       >
-        <div className="flex items-center gap-3 mb-4">
-          <Zap className="w-8 h-8 text-crimson" />
-          <p className="text-xl lg:text-2xl text-crimson font-bold">THIS FRIDAY (1/23)</p>
-          <Zap className="w-8 h-8 text-crimson" />
+        <div className="flex items-center gap-2 mb-2">
+          <Zap className="w-5 h-5 text-crimson" />
+          <p className="text-base lg:text-lg text-crimson font-bold">THIS FRIDAY (1/23)</p>
+          <Zap className="w-5 h-5 text-crimson" />
         </div>
-        <h3 className="text-3xl lg:text-5xl font-black text-white mb-6">Digital Social Hour Podcast</h3>
+        <h3 className="text-xl lg:text-2xl font-black text-white mb-3">Digital Social Hour Podcast</h3>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-2 gap-4">
           <div>
-            <p className="text-lg text-slate-light mb-2">Host Reach:</p>
-            <div className="text-4xl lg:text-5xl font-black text-crimson">
+            <p className="text-sm text-slate-light mb-1">Host Reach:</p>
+            <div className="text-2xl lg:text-3xl font-black text-crimson">
               <AnimatedNumber value={12000000} isActive={isActive} />
-              <span className="text-2xl ml-2">followers</span>
+              <span className="text-base ml-1">followers</span>
             </div>
           </div>
           <div>
-            <p className="text-lg text-slate-light mb-2">Opportunity:</p>
-            <p className="text-xl lg:text-2xl font-bold text-white">
+            <p className="text-sm text-slate-light mb-1">Opportunity:</p>
+            <p className="text-base lg:text-lg font-bold text-white">
               Wearing State & Liberty on camera = instant visibility
             </p>
           </div>
         </div>
       </motion.div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           animate={isActive ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.4 }}
         >
-          <h4 className="text-xl lg:text-2xl font-bold text-white mb-5">Low-Hanging Fruit</h4>
+          <h4 className="text-lg lg:text-xl font-bold text-white mb-3">Low-Hanging Fruit</h4>
           <BulletList items={lowHangingFruit} />
         </motion.div>
 
@@ -73,13 +73,13 @@ export function Slide12QuickWins({ isActive = true }: SlideProps) {
           animate={isActive ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.5 }}
         >
-          <h4 className="text-xl lg:text-2xl font-bold text-white mb-5">February 2026</h4>
-          <div className="bg-white/5 rounded-xl p-5 mb-6">
-            <p className="text-lg text-white font-semibold mb-2">Additional Top Podcast</p>
-            <p className="text-slate-light">Another major podcast appearance scheduled for February with similar high-reach potential</p>
+          <h4 className="text-lg lg:text-xl font-bold text-white mb-3">February 2026</h4>
+          <div className="bg-white/5 rounded-lg p-3 mb-4">
+            <p className="text-base text-white font-semibold mb-1">Additional Top Podcast</p>
+            <p className="text-sm text-slate-light">Another major podcast appearance scheduled with similar high-reach potential</p>
           </div>
 
-          <h4 className="text-xl font-bold text-white mb-4">Immediate Action Items</h4>
+          <h4 className="text-base lg:text-lg font-bold text-white mb-2">Immediate Action Items</h4>
           <BulletList items={immediateActions} />
         </motion.div>
       </div>

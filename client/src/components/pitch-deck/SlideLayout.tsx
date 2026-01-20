@@ -79,16 +79,16 @@ export function SlideSubtitle({ children, className = "" }: { children: React.Re
 
 export function BulletList({ items, className = "" }: { items: string[]; className?: string }) {
   return (
-    <ul className={`space-y-3 ${className}`}>
+    <ul className={`space-y-2 ${className}`}>
       {items.map((item, index) => (
         <motion.li
           key={index}
-          className="text-slate-text text-lg lg:text-xl leading-relaxed pl-8 relative"
+          className="text-slate-text text-base lg:text-lg leading-relaxed pl-6 relative"
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
         >
-          <span className="text-crimson text-2xl absolute left-0 -top-1">&#9656;</span>
+          <span className="text-crimson text-xl absolute left-0 -top-0.5">&#9656;</span>
           {item}
         </motion.li>
       ))}
@@ -99,7 +99,7 @@ export function BulletList({ items, className = "" }: { items: string[]; classNa
 export function QuoteBox({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   return (
     <motion.div
-      className={`bg-crimson/10 border-l-4 border-crimson p-6 lg:p-8 ${className}`}
+      className={`bg-crimson/10 border-l-4 border-crimson p-4 lg:p-6 ${className}`}
       initial={{ opacity: 0, x: -20 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.5, delay: 0.4 }}

@@ -27,7 +27,7 @@ export function Slide02Opportunity({ isActive = true, step = 4 }: SlideProps) {
       <SlideTitle>The Opportunity</SlideTitle>
       <SlideSubtitle>From Athletic Excellence to Political Influence</SlideSubtitle>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 mt-6 flex-1">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 mt-4 flex-1">
         <AnimatePresence>
           {step >= 2 && (
             <motion.div
@@ -37,7 +37,7 @@ export function Slide02Opportunity({ isActive = true, step = 4 }: SlideProps) {
               exit={{ opacity: 0, x: -30 }}
               transition={{ duration: 0.3 }}
             >
-              <h4 className="text-2xl lg:text-3xl font-bold text-crimson mb-6">Where You Are</h4>
+              <h4 className="text-xl lg:text-2xl font-bold text-crimson mb-4">Where You Are</h4>
               <BulletList items={whereYouAre} />
             </motion.div>
           )}
@@ -52,7 +52,7 @@ export function Slide02Opportunity({ isActive = true, step = 4 }: SlideProps) {
               exit={{ opacity: 0, x: 30 }}
               transition={{ duration: 0.3 }}
             >
-              <h4 className="text-2xl lg:text-3xl font-bold text-crimson mb-6">The Untapped Vertical</h4>
+              <h4 className="text-xl lg:text-2xl font-bold text-crimson mb-4">The Untapped Vertical</h4>
               <BulletList items={untappedVertical} />
             </motion.div>
           )}
@@ -63,14 +63,14 @@ export function Slide02Opportunity({ isActive = true, step = 4 }: SlideProps) {
         {step >= 4 && (
           <motion.div 
             key="quote"
-            className="bg-crimson/10 border-l-4 border-crimson p-6 lg:p-8 mt-8 lg:mt-12" 
+            className="bg-crimson/10 border-l-4 border-crimson p-4 lg:p-6 mt-4" 
             data-testid="quote-opportunity"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 20 }}
             transition={{ duration: 0.3 }}
           >
-            <p className="text-xl lg:text-2xl font-medium text-white leading-relaxed">
+            <p className="text-base lg:text-lg font-medium text-white leading-relaxed">
               "State & Liberty" isn't just a brand name, it's a statement of values that resonates far beyond the athletic arena.
             </p>
           </motion.div>
