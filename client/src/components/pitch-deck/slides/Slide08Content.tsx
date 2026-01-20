@@ -1,6 +1,6 @@
 import { SlideLayout, AccentLine, SlideTitle, SlideSubtitle, BulletList } from "../SlideLayout";
 import { motion } from "framer-motion";
-import storePhoto from "@assets/IMG_0892_1768871911680.JPG";
+import storePhoto from "@assets/IMG_0892_1768871911680.jpg";
 import boatPhoto from "@assets/IMG_0928_1768871911681.jpg";
 
 interface SlideProps {

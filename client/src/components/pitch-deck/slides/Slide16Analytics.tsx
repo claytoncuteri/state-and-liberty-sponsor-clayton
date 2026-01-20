@@ -19,7 +19,7 @@ export function Slide16Analytics({ isActive = true }: SlideProps) {
       <SlideTitle>Platform Analytics Proof</SlideTitle>
       <SlideSubtitle>Verified Social Media Performance Data</SlideSubtitle>
 
-      <div className="grid grid-cols-3 gap-3 mt-3 flex-1 overflow-hidden">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-3 mt-3 flex-1 overflow-hidden">
         <motion.div
           className="space-y-2"
           initial={{ opacity: 0, x: -30 }}
