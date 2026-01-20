@@ -338,8 +338,8 @@ export default function PitchDeck() {
             <div className="space-y-2 text-xs">
               <div className="flex items-center gap-2 text-slate-light">
                 <div className="flex gap-1">
-                  <span className="bg-navy border-2 border-crimson px-1.5 py-0.5 rounded text-crimson font-mono font-bold">←</span>
-                  <span className="bg-navy border-2 border-crimson px-1.5 py-0.5 rounded text-crimson font-mono font-bold">→</span>
+                  <span className="bg-navy border border-crimson px-1.5 py-0.5 rounded text-crimson font-mono font-bold">←</span>
+                  <span className="bg-navy border border-crimson px-1.5 py-0.5 rounded text-crimson font-mono font-bold">→</span>
                 </div>
                 <span>Navigate slides</span>
               </div>
