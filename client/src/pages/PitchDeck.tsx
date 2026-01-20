@@ -331,7 +331,7 @@ export default function PitchDeck() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 20 }}
             transition={{ duration: 0.3 }}
-            className="fixed bottom-20 left-4 z-50 bg-navy/95 border border-white/20 rounded-lg p-4 max-w-xs shadow-xl backdrop-blur-sm"
+            className="fixed bottom-20 right-4 z-50 bg-navy/95 border border-white/20 rounded-lg p-4 max-w-xs shadow-xl backdrop-blur-sm"
             data-testid="popup-welcome"
           >
             <p className="text-white text-sm font-medium mb-3">Navigation Tips</p>

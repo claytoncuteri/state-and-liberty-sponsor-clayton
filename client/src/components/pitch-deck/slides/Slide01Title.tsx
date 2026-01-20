@@ -18,22 +18,22 @@ export function Slide01Title({ isActive = true }: SlideProps) {
       </div>
 
       <div className="absolute top-8 left-10 right-10 z-10 flex justify-between items-center lg:top-12 lg:left-16 lg:right-16">
+        <motion.img 
+          src={stateAndLibertyLogo}
+          alt="State & Liberty"
+          className="h-10 lg:h-14 brightness-0 invert"
+          initial={{ opacity: 0, x: -20 }}
+          animate={isActive ? { opacity: 1, x: 0 } : {}}
+          transition={{ duration: 0.6 }}
+        />
         <motion.div 
           className="text-white text-lg font-semibold tracking-widest lg:text-xl"
-          initial={{ opacity: 0, x: -20 }}
+          initial={{ opacity: 0, x: 20 }}
           animate={isActive ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
           CLAYTON CUTERI
         </motion.div>
-        <motion.img 
-          src={stateAndLibertyLogo}
-          alt="State & Liberty"
-          className="h-10 lg:h-14 brightness-0 invert"
-          initial={{ opacity: 0, x: 20 }}
-          animate={isActive ? { opacity: 1, x: 0 } : {}}
-          transition={{ duration: 0.6 }}
-        />
       </div>
 
       <div className="relative z-10 text-center w-full px-6 lg:px-20">
