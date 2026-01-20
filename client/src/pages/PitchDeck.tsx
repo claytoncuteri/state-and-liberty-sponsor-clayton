@@ -51,12 +51,17 @@ const slides = [
 ];
 
 export default function PitchDeck() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const initialMode = urlParams.get("mode") as "slide" | "scroll" | null;
+  const shouldDownload = urlParams.get("download") === "true";
+
   const [currentSlide, setCurrentSlide] = useState(0);
   const [currentStep, setCurrentStep] = useState(1);
-  const [viewMode, setViewMode] = useState<"slide" | "scroll">("slide");
+  const [viewMode, setViewMode] = useState<"slide" | "scroll">(initialMode || "slide");
   const [isExporting, setIsExporting] = useState(false);
-  const [showWelcomeDialog, setShowWelcomeDialog] = useState(true);
+  const [showWelcomeDialog, setShowWelcomeDialog] = useState(!initialMode && !shouldDownload);
   const [isPortrait, setIsPortrait] = useState(false);
+  const [hasTriggeredDownload, setHasTriggeredDownload] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const slideRefs = useRef<(HTMLDivElement | null)[]>([]);
   const { toast } = useToast();
@@ -188,6 +193,16 @@ export default function PitchDeck() {
       setIsExporting(false);
     }
   }, [viewMode, currentSlide, toast]);
+
+  useEffect(() => {
+    if (shouldDownload && !hasTriggeredDownload && !isExporting) {
+      setHasTriggeredDownload(true);
+      const timer = setTimeout(() => {
+        exportToPDF();
+      }, 1000);
+      return () => clearTimeout(timer);
+    }
+  }, [shouldDownload, hasTriggeredDownload, isExporting, exportToPDF]);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
