@@ -103,10 +103,12 @@ export default function PitchDeck() {
       }
 
       const originalSlide = currentSlide;
+      const originalStep = currentStep;
 
       for (let i = 0; i < slides.length; i++) {
         setCurrentSlide(i);
-        await new Promise((resolve) => setTimeout(resolve, 800));
+        setCurrentStep(slides[i].steps);
+        await new Promise((resolve) => setTimeout(resolve, 1000));
 
         const slideElement = containerRef.current?.querySelector(".slide-container");
         if (slideElement) {
@@ -132,6 +134,7 @@ export default function PitchDeck() {
       pdf.save("State-Liberty-x-Clayton-Cuteri-Partnership.pdf");
 
       setCurrentSlide(originalSlide);
+      setCurrentStep(originalStep);
       if (wasScrollMode) {
         setViewMode("scroll");
       }

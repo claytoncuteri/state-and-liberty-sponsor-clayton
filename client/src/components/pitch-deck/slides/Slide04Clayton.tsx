@@ -34,7 +34,7 @@ export function Slide04Clayton({ isActive = true }: SlideProps) {
           animate={isActive ? { opacity: 1, scale: 1 } : {}}
           transition={{ duration: 0.6, delay: 0.3 }}
         >
-          <div className="w-48 h-48 lg:w-64 lg:h-64 rounded-xl overflow-hidden border-4 border-crimson shadow-2xl shadow-crimson/20">
+          <div className="w-40 h-40 lg:w-52 lg:h-52 rounded-xl overflow-hidden border-4 border-crimson shadow-2xl shadow-crimson/20">
             <img
               src={claytonHeadshot}
               alt="Clayton Cuteri Professional Headshot"
@@ -56,8 +56,8 @@ export function Slide04Clayton({ isActive = true }: SlideProps) {
         </motion.div>
       </div>
 
-      <div className="bg-crimson/10 border-l-4 border-crimson p-5 lg:p-8 mt-4" data-testid="quote-clayton">
-        <p className="text-xl lg:text-2xl font-medium text-white leading-relaxed">
+      <div className="bg-crimson/10 border-l-4 border-crimson p-4 lg:p-5 mt-3" data-testid="quote-clayton">
+        <p className="text-lg lg:text-xl font-medium text-white leading-relaxed">
           "What you put IN your body matters. What you put ON your body matters. Both require the same discipline, quality, and freedom of choice."
         </p>
       </div>
