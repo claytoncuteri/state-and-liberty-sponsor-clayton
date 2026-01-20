@@ -36,7 +36,7 @@ export const slides: SlideConfig[] = [
   { component: Slide07Demographics, name: "Demographics", steps: 1 },
   { component: Slide16Analytics, name: "Analytics", steps: 1 },
   { component: Slide08Content, name: "Content", steps: 1 },
-  { component: Slide09WhyWorks, name: "Why Works", steps: 4 },
+  { component: Slide09WhyWorks, name: "Why Works", steps: 7 },
   { component: Slide10Market, name: "Market", steps: 1 },
   { component: Slide11PriceAnchor, name: "Price Anchor", steps: 1 },
   { component: Slide11Tier1, name: "Tier 1", steps: 1 },

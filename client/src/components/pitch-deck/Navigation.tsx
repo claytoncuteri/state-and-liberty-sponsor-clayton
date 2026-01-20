@@ -77,7 +77,7 @@ export function Navigation({
             </motion.button>
 
             <motion.button
-              className="fixed right-2 top-1/2 -translate-y-1/2 z-40 p-3 lg:p-4 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white transition-all disabled:opacity-30 disabled:cursor-not-allowed overflow-visible hover-elevate active-elevate-2"
+              className="fixed right-0 top-1/2 -translate-y-1/2 z-40 p-3 lg:p-4 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white transition-all disabled:opacity-30 disabled:cursor-not-allowed overflow-visible hover-elevate active-elevate-2"
               onClick={onNext}
               disabled={currentSlide === totalSlides - 1}
               initial={{ opacity: 0, x: 20 }}
