@@ -29,14 +29,15 @@ export default function LandingPage() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
-        <div className="flex items-center gap-6 mb-8">
+        <div className="flex items-center gap-6 mb-8" data-testid="branding-header">
           <img 
             src={stateAndLibertyLogo} 
             alt="State & Liberty" 
             className="h-16 lg:h-20 brightness-0 invert"
+            data-testid="img-logo"
           />
           <div className="h-12 w-px bg-white/30" />
-          <span className="text-white text-xl lg:text-2xl font-semibold tracking-widest">
+          <span className="text-white text-xl lg:text-2xl font-semibold tracking-widest" data-testid="text-brand-name">
             CLAYTON CUTERI
           </span>
         </div>
@@ -48,19 +49,19 @@ export default function LandingPage() {
           transition={{ duration: 0.6, delay: 0.3 }}
         />
 
-        <h1 className="text-4xl lg:text-5xl font-black text-white mb-4 tracking-tight">
+        <h1 className="text-4xl lg:text-5xl font-black text-white mb-4 tracking-tight" data-testid="text-heading">
           Strategic Partnership Proposal
         </h1>
         
-        <p className="text-lg lg:text-xl text-slate-light mb-12 max-w-xl">
+        <p className="text-lg lg:text-xl text-slate-light mb-12 max-w-xl" data-testid="text-subtitle">
           A comprehensive sponsorship opportunity connecting premium athletic apparel with 70M+ monthly political media impressions
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+        <div className="flex flex-col sm:flex-row flex-wrap gap-4 w-full sm:w-auto" data-testid="cta-container">
           <Button
             onClick={handleStartPresentation}
             size="lg"
-            className="bg-crimson text-white px-8 py-6 text-lg font-semibold gap-3"
+            className="bg-crimson text-white gap-3"
             data-testid="button-start-presentation"
           >
             <Play className="w-5 h-5" />
@@ -71,7 +72,7 @@ export default function LandingPage() {
             onClick={handleViewScroll}
             size="lg"
             variant="outline"
-            className="border-white/30 text-white px-8 py-6 text-lg font-semibold gap-3 bg-white/5 backdrop-blur-sm"
+            className="border-white/30 text-white gap-3 bg-white/5 backdrop-blur-sm"
             data-testid="button-view-scroll"
           >
             <Scroll className="w-5 h-5" />
@@ -82,7 +83,7 @@ export default function LandingPage() {
             onClick={handleDownloadPDF}
             size="lg"
             variant="outline"
-            className="border-white/30 text-white px-8 py-6 text-lg font-semibold gap-3 bg-white/5 backdrop-blur-sm"
+            className="border-white/30 text-white gap-3 bg-white/5 backdrop-blur-sm"
             data-testid="button-download-pdf"
           >
             <Download className="w-5 h-5" />
