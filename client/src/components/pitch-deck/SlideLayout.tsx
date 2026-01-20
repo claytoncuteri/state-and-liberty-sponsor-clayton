@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import stateAndLibertyLogo from "@assets/State_and_liberty_logo_1768872767045.png";
 
 interface SlideLayoutProps {
   children: React.ReactNode;
@@ -16,19 +17,14 @@ export function SlideLayout({ children, slideNumber, isActive = true, className 
       transition={{ duration: 0.4 }}
     >
       <div className="absolute top-8 left-10 right-10 z-10 flex justify-between items-center lg:top-12 lg:left-16 lg:right-16">
-        <svg className="h-10 lg:h-14" viewBox="0 0 400 80" xmlns="http://www.w3.org/2000/svg">
-          <text
-            x="5"
-            y="55"
-            className="fill-white"
-            style={{ fontFamily: "'Libre Baskerville', 'Playfair Display', serif", fontSize: "42px" }}
-          >
-            State&Liberty
-          </text>
-        </svg>
-        <div className="text-white text-sm font-semibold tracking-widest opacity-70 lg:text-base">
+        <div className="text-white text-lg font-semibold tracking-widest lg:text-xl">
           CLAYTON CUTERI
         </div>
+        <img 
+          src={stateAndLibertyLogo} 
+          alt="State & Liberty" 
+          className="h-10 lg:h-14 brightness-0 invert"
+        />
       </div>
 
       <div className="content-area relative z-[2] pt-28 pb-16 px-6 h-full flex flex-col lg:pt-40 lg:pb-24 lg:px-16">

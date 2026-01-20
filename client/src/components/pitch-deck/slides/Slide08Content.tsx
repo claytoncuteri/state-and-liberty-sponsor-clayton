@@ -15,7 +15,7 @@ export function Slide08Content({ isActive = true }: SlideProps) {
   ];
 
   return (
-    <SlideLayout slideNumber={8} isActive={isActive}>
+    <SlideLayout slideNumber={9} isActive={isActive}>
       <AccentLine />
       <SlideTitle>Viral Performance in Action</SlideTitle>
       <SlideSubtitle>Proven Track Record of High-Impact Content</SlideSubtitle>
@@ -75,7 +75,7 @@ export function Slide08Content({ isActive = true }: SlideProps) {
           <h4 className="text-xl lg:text-2xl font-bold text-white mb-5">Upcoming Media</h4>
 
           <div className="bg-crimson/15 border-2 border-crimson rounded-xl p-6 mb-6">
-            <p className="text-xl font-bold text-crimson mb-2">THIS FRIDAY</p>
+            <p className="text-xl font-bold text-crimson mb-2">THIS FRIDAY (1/23)</p>
             <p className="text-lg text-white mb-1">Digital Social Hour Podcast</p>
             <p className="text-slate-light">Top 30 podcast | Host: 12M Instagram followers</p>
           </div>

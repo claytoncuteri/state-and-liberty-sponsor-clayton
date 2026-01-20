@@ -15,7 +15,7 @@ export function Slide10Market({ isActive = true }: SlideProps) {
   ];
 
   return (
-    <SlideLayout slideNumber={10} isActive={isActive}>
+    <SlideLayout slideNumber={11} isActive={isActive}>
       <AccentLine />
       <SlideTitle>Opening a New Market Segment</SlideTitle>
       <SlideSubtitle>Strategic Vertical Expansion</SlideSubtitle>

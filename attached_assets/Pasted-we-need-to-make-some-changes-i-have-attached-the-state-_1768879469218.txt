@@ -1,0 +1,26 @@
+we need to make some changes.
+
+i have attached the state and liberty logo. Please put that in the upper right hand corner of the slides. same size as current one, but use the logo. Make the logo white. Increase the size of Clayton Cuteri to match the size
+
+
+when the page loads, add a dialog pop up that tells you about the icons in the bottom right corner for grid, fullscreen, and download as pdf
+
+in the presentation mode and full screen, there are slides where the text extends to far to the bottom. these need reworked so that all text is shown on the screen. It should adapt based on the screen size. if on mobile and vetical, it should tell the user to flip their phone to landscape
+
+in presentation and full screen mode, the arrow icons are in the top right corner, they should be centered vertically and on the far left and far right of the screen
+
+in grid mode, the snap on scrolling is off as you cannot see all of the text on one screen and the "gripping" makes it difficult to find text
+
+when a user goes to a new screen, it should only display the title, then when they click right, it should show more text or another div, for example, with the "The opportunity" slide, only show the title and subtitle, right arrow and see "where you are" then right arrow shows firect bullet, then second and continue then the untapped vertical, etc
+for the 70M+ monthly cross-platform reach, show the title, then each right arrow or next loads a div in the motion.div like 330k then 65.5M then 4.1M etc
+Now, for the "Why this works" slide, load the title subtitle, load the red box and red box titles, then on each right click, display the first line of each box
+
+Change email at the end to "cuteri.clayton28@gmail.com" and remove the "Clayton Cuteri | American Congress Party" subtitle
+
+Where it reads "(Paul Skenes, NHL/MLB athletes)" Change this to (NFL/NHL/MLB athletes)
+
+Change all '—' to ','
+
+where it says "THIS FRIDAY", mention that it's 1/23
+
+For flexible partnership teirs, we can break this out into 4 slides, first one is price anchoring with the high end cost of this, then tier 1, then tier 2, then tier 3. For tier 3, don't say $15k+. Say "15k-25k" And make all of these say "per month" with a note that it depends on what all they desire. They can mix and match the options in the tier. thats why the price is flexible

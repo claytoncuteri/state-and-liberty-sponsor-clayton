@@ -22,7 +22,7 @@ export function Slide12QuickWins({ isActive = true }: SlideProps) {
   ];
 
   return (
-    <SlideLayout slideNumber={12} isActive={isActive}>
+    <SlideLayout slideNumber={16} isActive={isActive}>
       <AccentLine />
       <SlideTitle>Quick Wins Starting This Week</SlideTitle>
       <SlideSubtitle>Time-Sensitive Opportunities</SlideSubtitle>
@@ -36,7 +36,7 @@ export function Slide12QuickWins({ isActive = true }: SlideProps) {
       >
         <div className="flex items-center gap-3 mb-4">
           <Zap className="w-8 h-8 text-crimson" />
-          <p className="text-xl lg:text-2xl text-crimson font-bold">THIS FRIDAY</p>
+          <p className="text-xl lg:text-2xl text-crimson font-bold">THIS FRIDAY (1/23)</p>
           <Zap className="w-8 h-8 text-crimson" />
         </div>
         <h3 className="text-3xl lg:text-5xl font-black text-white mb-6">Digital Social Hour Podcast</h3>

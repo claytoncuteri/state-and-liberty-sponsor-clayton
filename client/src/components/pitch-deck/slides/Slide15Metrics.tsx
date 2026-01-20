@@ -24,7 +24,7 @@ export function Slide15Metrics({ isActive = true }: SlideProps) {
   ];
 
   return (
-    <SlideLayout slideNumber={15} isActive={isActive}>
+    <SlideLayout slideNumber={19} isActive={isActive}>
       <AccentLine />
       <SlideTitle>How We'll Measure Success</SlideTitle>
       <SlideSubtitle>Clear, Trackable Metrics</SlideSubtitle>
@@ -57,11 +57,8 @@ export function Slide15Metrics({ isActive = true }: SlideProps) {
         data-testid="callout-contact-cta"
       >
         <h3 className="text-2xl lg:text-3xl font-bold text-white mb-4">Let's Build Something Together</h3>
-        <p className="text-lg lg:text-xl text-slate-light mb-6">
-          Clayton Cuteri | American Congress Party
-        </p>
         <p className="text-xl lg:text-2xl text-slate-light mb-2">
-          Email: <span className="text-white">Clayton@AmericanCongressParty.com</span>
+          Email: <span className="text-white">cuteri.clayton28@gmail.com</span>
         </p>
         <p className="text-3xl lg:text-4xl font-bold text-crimson mt-8">
           Ready to expand into the freedom vertical?

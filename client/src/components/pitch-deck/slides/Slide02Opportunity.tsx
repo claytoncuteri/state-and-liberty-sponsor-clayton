@@ -1,13 +1,14 @@
 import { SlideLayout, AccentLine, SlideTitle, SlideSubtitle, BulletList } from "../SlideLayout";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface SlideProps {
   isActive?: boolean;
+  step?: number;
 }
 
-export function Slide02Opportunity({ isActive = true }: SlideProps) {
+export function Slide02Opportunity({ isActive = true, step = 4 }: SlideProps) {
   const whereYouAre = [
-    "Mastered the athletic vertical (Paul Skenes, NHL/MLB athletes)",
+    "Mastered the athletic vertical (NFL/NHL/MLB athletes)",
     "Performance fabric designed for athletic builds",
     "Strong brand recognition in sports",
     "500+ NHL, 350+ NFL, 1000+ professional athletes",
@@ -27,30 +28,54 @@ export function Slide02Opportunity({ isActive = true }: SlideProps) {
       <SlideSubtitle>From Athletic Excellence to Political Influence</SlideSubtitle>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 mt-6 flex-1">
-        <motion.div
-          initial={{ opacity: 0, x: -30 }}
-          animate={isActive ? { opacity: 1, x: 0 } : {}}
-          transition={{ duration: 0.5, delay: 0.3 }}
-        >
-          <h4 className="text-2xl lg:text-3xl font-bold text-crimson mb-6">Where You Are</h4>
-          <BulletList items={whereYouAre} />
-        </motion.div>
+        <AnimatePresence>
+          {step >= 2 && (
+            <motion.div
+              key="where-you-are"
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -30 }}
+              transition={{ duration: 0.3 }}
+            >
+              <h4 className="text-2xl lg:text-3xl font-bold text-crimson mb-6">Where You Are</h4>
+              <BulletList items={whereYouAre} />
+            </motion.div>
+          )}
+        </AnimatePresence>
 
-        <motion.div
-          initial={{ opacity: 0, x: 30 }}
-          animate={isActive ? { opacity: 1, x: 0 } : {}}
-          transition={{ duration: 0.5, delay: 0.4 }}
-        >
-          <h4 className="text-2xl lg:text-3xl font-bold text-crimson mb-6">The Untapped Vertical</h4>
-          <BulletList items={untappedVertical} />
-        </motion.div>
+        <AnimatePresence>
+          {step >= 3 && (
+            <motion.div
+              key="untapped-vertical"
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: 30 }}
+              transition={{ duration: 0.3 }}
+            >
+              <h4 className="text-2xl lg:text-3xl font-bold text-crimson mb-6">The Untapped Vertical</h4>
+              <BulletList items={untappedVertical} />
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
 
-      <div className="bg-crimson/10 border-l-4 border-crimson p-6 lg:p-8 mt-8 lg:mt-12" data-testid="quote-opportunity">
-        <p className="text-xl lg:text-2xl font-medium text-white leading-relaxed">
-          "State & Liberty" isn't just a brand name — it's a statement of values that resonates far beyond the athletic arena.
-        </p>
-      </div>
+      <AnimatePresence>
+        {step >= 4 && (
+          <motion.div 
+            key="quote"
+            className="bg-crimson/10 border-l-4 border-crimson p-6 lg:p-8 mt-8 lg:mt-12" 
+            data-testid="quote-opportunity"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 20 }}
+            transition={{ duration: 0.3 }}
+          >
+            <p className="text-xl lg:text-2xl font-medium text-white leading-relaxed">
+              "State & Liberty" isn't just a brand name, it's a statement of values that resonates far beyond the athletic arena.
+            </p>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </SlideLayout>
   );
 }

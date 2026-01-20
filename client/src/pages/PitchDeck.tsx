@@ -14,7 +14,10 @@ import {
   Slide08Content,
   Slide09WhyWorks,
   Slide10Market,
-  Slide11Tiers,
+  Slide11PriceAnchor,
+  Slide11Tier1,
+  Slide11Tier2,
+  Slide11Tier3,
   Slide12QuickWins,
   Slide13WhyNow,
   Slide14FAQ,
@@ -22,37 +25,64 @@ import {
   Slide16Analytics,
 } from "@/components/pitch-deck/slides";
 import { useToast } from "@/hooks/use-toast";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
+import { Grid, Maximize, Download, RotateCcw } from "lucide-react";
 
 const slides = [
-  { component: Slide01Title, name: "Title" },
-  { component: Slide02Opportunity, name: "Opportunity" },
-  { component: Slide03Today, name: "Today" },
-  { component: Slide04Clayton, name: "Clayton" },
-  { component: Slide05Numbers, name: "Numbers" },
-  { component: Slide06Engagement, name: "Engagement" },
-  { component: Slide07Demographics, name: "Demographics" },
-  { component: Slide16Analytics, name: "Analytics" },
-  { component: Slide08Content, name: "Content" },
-  { component: Slide09WhyWorks, name: "Why Works" },
-  { component: Slide10Market, name: "Market" },
-  { component: Slide11Tiers, name: "Tiers" },
-  { component: Slide12QuickWins, name: "Quick Wins" },
-  { component: Slide13WhyNow, name: "Why Now" },
-  { component: Slide14FAQ, name: "FAQ" },
-  { component: Slide15Metrics, name: "Metrics" },
+  { component: Slide01Title, name: "Title", steps: 1 },
+  { component: Slide02Opportunity, name: "Opportunity", steps: 4 },
+  { component: Slide03Today, name: "Today", steps: 1 },
+  { component: Slide04Clayton, name: "Clayton", steps: 1 },
+  { component: Slide05Numbers, name: "Numbers", steps: 6 },
+  { component: Slide06Engagement, name: "Engagement", steps: 1 },
+  { component: Slide07Demographics, name: "Demographics", steps: 1 },
+  { component: Slide16Analytics, name: "Analytics", steps: 1 },
+  { component: Slide08Content, name: "Content", steps: 1 },
+  { component: Slide09WhyWorks, name: "Why Works", steps: 4 },
+  { component: Slide10Market, name: "Market", steps: 1 },
+  { component: Slide11PriceAnchor, name: "Price Anchor", steps: 1 },
+  { component: Slide11Tier1, name: "Tier 1", steps: 1 },
+  { component: Slide11Tier2, name: "Tier 2", steps: 1 },
+  { component: Slide11Tier3, name: "Tier 3", steps: 1 },
+  { component: Slide12QuickWins, name: "Quick Wins", steps: 1 },
+  { component: Slide13WhyNow, name: "Why Now", steps: 1 },
+  { component: Slide14FAQ, name: "FAQ", steps: 1 },
+  { component: Slide15Metrics, name: "Metrics", steps: 1 },
 ];
 
 export default function PitchDeck() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [currentStep, setCurrentStep] = useState(1);
   const [viewMode, setViewMode] = useState<"slide" | "scroll">("slide");
   const [isExporting, setIsExporting] = useState(false);
+  const [showWelcomeDialog, setShowWelcomeDialog] = useState(true);
+  const [isPortrait, setIsPortrait] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const slideRefs = useRef<(HTMLDivElement | null)[]>([]);
   const { toast } = useToast();
 
-  const goToSlide = useCallback((index: number) => {
+  useEffect(() => {
+    const checkOrientation = () => {
+      const isMobile = window.innerWidth <= 768;
+      const isPortraitMode = window.innerHeight > window.innerWidth;
+      setIsPortrait(isMobile && isPortraitMode);
+    };
+
+    checkOrientation();
+    window.addEventListener("resize", checkOrientation);
+    window.addEventListener("orientationchange", checkOrientation);
+
+    return () => {
+      window.removeEventListener("resize", checkOrientation);
+      window.removeEventListener("orientationchange", checkOrientation);
+    };
+  }, []);
+
+  const goToSlide = useCallback((index: number, step = 1) => {
     if (index >= 0 && index < slides.length) {
       setCurrentSlide(index);
+      setCurrentStep(step);
       if (viewMode === "scroll" && slideRefs.current[index]) {
         slideRefs.current[index]?.scrollIntoView({ behavior: "smooth", block: "start" });
       }
@@ -60,12 +90,23 @@ export default function PitchDeck() {
   }, [viewMode]);
 
   const goToPrevious = useCallback(() => {
-    goToSlide(currentSlide - 1);
-  }, [currentSlide, goToSlide]);
+    const slideData = slides[currentSlide];
+    if (currentStep > 1) {
+      setCurrentStep(currentStep - 1);
+    } else if (currentSlide > 0) {
+      const prevSlide = slides[currentSlide - 1];
+      goToSlide(currentSlide - 1, prevSlide.steps);
+    }
+  }, [currentSlide, currentStep, goToSlide]);
 
   const goToNext = useCallback(() => {
-    goToSlide(currentSlide + 1);
-  }, [currentSlide, goToSlide]);
+    const slideData = slides[currentSlide];
+    if (currentStep < slideData.steps) {
+      setCurrentStep(currentStep + 1);
+    } else if (currentSlide < slides.length - 1) {
+      goToSlide(currentSlide + 1, 1);
+    }
+  }, [currentSlide, currentStep, goToSlide]);
 
   const toggleViewMode = useCallback(() => {
     setViewMode((prev) => (prev === "slide" ? "scroll" : "slide"));
@@ -246,23 +287,26 @@ export default function PitchDeck() {
                   key={index}
                   className={index === currentSlide ? "block" : "hidden"}
                 >
-                  <SlideComponent isActive={index === currentSlide} />
+                  <SlideComponent 
+                    isActive={index === currentSlide} 
+                    step={index === currentSlide ? currentStep : slide.steps}
+                  />
                 </div>
               );
             })}
           </motion.div>
         </AnimatePresence>
       ) : (
-        <div className="overflow-y-auto h-screen snap-y snap-mandatory scroll-smooth">
+        <div className="overflow-y-auto h-screen scroll-smooth">
           {slides.map((slide, index) => {
             const SlideComponent = slide.component;
             return (
               <div
                 key={index}
                 ref={(el) => (slideRefs.current[index] = el)}
-                className="snap-start min-h-screen"
+                className="min-h-screen"
               >
-                <SlideComponent isActive={true} />
+                <SlideComponent isActive={true} step={slide.steps} />
               </div>
             );
           })}
@@ -278,6 +322,65 @@ export default function PitchDeck() {
               Processing slide {currentSlide + 1} of {slides.length}
             </p>
           </div>
+        </div>
+      )}
+
+      <Dialog open={showWelcomeDialog} onOpenChange={setShowWelcomeDialog}>
+        <DialogContent className="bg-navy border-white/20 text-white max-w-md" data-testid="dialog-welcome">
+          <DialogHeader>
+            <DialogTitle className="text-2xl font-bold text-white">Welcome to the Pitch Deck</DialogTitle>
+            <DialogDescription className="text-slate-light">
+              Use the controls at the bottom to navigate through the presentation.
+            </DialogDescription>
+          </DialogHeader>
+          <div className="space-y-4 mt-4">
+            <div className="flex items-center gap-4 p-3 bg-white/5 rounded-lg">
+              <div className="p-2 bg-white/10 rounded-full">
+                <Grid className="w-5 h-5 text-crimson" />
+              </div>
+              <div>
+                <p className="font-medium">Grid View</p>
+                <p className="text-sm text-slate-light">Switch to scrollable overview of all slides</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-4 p-3 bg-white/5 rounded-lg">
+              <div className="p-2 bg-white/10 rounded-full">
+                <Maximize className="w-5 h-5 text-crimson" />
+              </div>
+              <div>
+                <p className="font-medium">Fullscreen</p>
+                <p className="text-sm text-slate-light">Enter fullscreen presentation mode</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-4 p-3 bg-white/5 rounded-lg">
+              <div className="p-2 bg-white/10 rounded-full">
+                <Download className="w-5 h-5 text-crimson" />
+              </div>
+              <div>
+                <p className="font-medium">Download PDF</p>
+                <p className="text-sm text-slate-light">Export the full presentation as a PDF</p>
+              </div>
+            </div>
+          </div>
+          <Button 
+            onClick={() => setShowWelcomeDialog(false)} 
+            className="w-full mt-4 bg-crimson text-white"
+            data-testid="button-start-presentation"
+          >
+            Start Presentation
+          </Button>
+        </DialogContent>
+      </Dialog>
+
+      {isPortrait && (
+        <div className="fixed inset-0 bg-navy z-[200] flex flex-col items-center justify-center p-8" data-testid="portrait-overlay">
+          <RotateCcw className="w-16 h-16 text-crimson mb-6 animate-pulse" />
+          <h2 className="text-2xl font-bold text-white text-center mb-4">
+            Please Rotate Your Device
+          </h2>
+          <p className="text-slate-light text-center">
+            This presentation is best viewed in landscape mode. Please rotate your phone horizontally.
+          </p>
         </div>
       )}
     </div>

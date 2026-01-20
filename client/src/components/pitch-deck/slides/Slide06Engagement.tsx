@@ -11,7 +11,7 @@ export function Slide06Engagement({ isActive = true }: SlideProps) {
   return (
     <SlideLayout slideNumber={6} isActive={isActive}>
       <AccentLine />
-      <SlideTitle>It's Not Just Reach — It's Connection</SlideTitle>
+      <SlideTitle>It's Not Just Reach, It's Connection</SlideTitle>
       <SlideSubtitle>Elite Engagement Metrics</SlideSubtitle>
 
       <motion.div
@@ -60,7 +60,7 @@ export function Slide06Engagement({ isActive = true }: SlideProps) {
         animate={isActive ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.5, delay: 0.8 }}
       >
-        My audience doesn't just watch — they engage, share, and take action.
+        My audience doesn't just watch, they engage, share, and take action.
       </motion.p>
     </SlideLayout>
   );

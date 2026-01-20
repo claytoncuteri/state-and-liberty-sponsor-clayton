@@ -14,7 +14,7 @@ interface SlideProps {
 
 export function Slide16Analytics({ isActive = true }: SlideProps) {
   return (
-    <SlideLayout slideNumber={16} isActive={isActive}>
+    <SlideLayout slideNumber={8} isActive={isActive}>
       <AccentLine />
       <SlideTitle>Platform Analytics Proof</SlideTitle>
       <SlideSubtitle>Verified Social Media Performance Data</SlideSubtitle>

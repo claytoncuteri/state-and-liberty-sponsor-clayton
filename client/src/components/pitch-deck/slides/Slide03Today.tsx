@@ -54,7 +54,7 @@ export function Slide03Today({ isActive = true }: SlideProps) {
         data-testid="text-brand-story"
       >
         <p className="text-xl lg:text-2xl text-slate-light italic leading-relaxed max-w-4xl mx-auto">
-          You've built an exceptional brand in the athletic space. The name "State & Liberty" carries inherent meaning that extends far beyond sports — and that's where this partnership comes in.
+          You've built an exceptional brand in the athletic space. The name "State & Liberty" carries inherent meaning that extends far beyond sports, and that's where this partnership comes in.
         </p>
       </motion.div>
     </SlideLayout>

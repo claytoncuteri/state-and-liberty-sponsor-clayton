@@ -25,7 +25,7 @@ export function Slide13WhyNow({ isActive = true }: SlideProps) {
   ];
 
   return (
-    <SlideLayout slideNumber={13} isActive={isActive}>
+    <SlideLayout slideNumber={17} isActive={isActive}>
       <AccentLine />
       <SlideTitle>Why Me, Why Now?</SlideTitle>
       <SlideSubtitle>The Right Partner at the Right Time</SlideSubtitle>
@@ -58,10 +58,10 @@ export function Slide13WhyNow({ isActive = true }: SlideProps) {
         data-testid="callout-strategic-expansion"
       >
         <p className="text-xl lg:text-2xl font-bold text-white leading-relaxed mb-4">
-          This isn't just an influencer deal —<br />it's a strategic expansion into a market segment<br />that perfectly aligns with your brand name and values.
+          This isn't just an influencer deal,<br />it's a strategic expansion into a market segment<br />that perfectly aligns with your brand name and values.
         </p>
         <p className="text-lg text-slate-light italic">
-          The timing, the audience, the alignment — everything is here.
+          The timing, the audience, the alignment, everything is here.
         </p>
       </motion.div>
     </SlideLayout>
