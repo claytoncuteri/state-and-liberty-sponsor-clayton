@@ -10,8 +10,9 @@ interface SlideLayoutProps {
 }
 
 // Fixed design dimensions - slides are always this size, then scaled to fit
-const DESIGN_WIDTH = 1920;
-const DESIGN_HEIGHT = 1080;
+// Export these so Slide01Title can use them as well
+export const DESIGN_WIDTH = 1920;
+export const DESIGN_HEIGHT = 1080;
 
 export function useViewportScale() {
   const [scale, setScale] = useState(1);

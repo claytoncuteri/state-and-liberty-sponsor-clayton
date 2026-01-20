@@ -1,15 +1,11 @@
 import { motion } from "framer-motion";
 import claytonHeadshot from "@assets/Clayton_Headshot_Suit_1768871955214.jpg";
 import stateAndLibertyLogo from "@assets/state_and_liberty_logo_transparent_background_1768882188915.avif";
-import { useViewportScale } from "../SlideLayout";
+import { useViewportScale, DESIGN_WIDTH, DESIGN_HEIGHT } from "../SlideLayout";
 
 interface SlideProps {
   isActive?: boolean;
 }
-
-// Fixed design dimensions - must match SlideLayout
-const DESIGN_WIDTH = 1920;
-const DESIGN_HEIGHT = 1080;
 
 export function Slide01Title({ isActive = true }: SlideProps) {
   const scale = useViewportScale();
