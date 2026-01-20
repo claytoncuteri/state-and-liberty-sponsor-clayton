@@ -1,8 +1,6 @@
 import { SlideLayout, AccentLine, SlideTitle, SlideSubtitle, BulletList } from "../SlideLayout";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeftRight } from "lucide-react";
-import outfitImage1 from "@assets/IMG_0892_1768871911680.jpg";
-import outfitImage2 from "@assets/IMG_0928_1768871911681.jpg";
 
 interface SlideProps {
   isActive?: boolean;
@@ -32,26 +30,7 @@ export function Slide09WhyWorks({ isActive = true, step = 4 }: SlideProps) {
       <SlideTitle>Why This Works</SlideTitle>
       <SlideSubtitle>Performance Meets Purpose</SlideSubtitle>
 
-      <div className="grid grid-cols-[auto_1fr_auto_1fr_auto] gap-6 items-center mt-4 flex-1">
-        <AnimatePresence>
-          {step >= 1 && (
-            <motion.div
-              key="outfit-image-1"
-              className="w-40 h-56 rounded-lg overflow-hidden border-2 border-crimson/50 shadow-lg"
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -30 }}
-              transition={{ duration: 0.4 }}
-              data-testid="img-outfit-1"
-            >
-              <img 
-                src={outfitImage1} 
-                alt="Clayton in State & Liberty outfit" 
-                className="w-full h-full object-cover object-top"
-              />
-            </motion.div>
-          )}
-        </AnimatePresence>
+      <div className="grid grid-cols-[1fr_auto_1fr] gap-6 items-center mt-4 flex-1">
         <AnimatePresence>
           {step >= 2 && (
             <motion.div
@@ -95,26 +74,6 @@ export function Slide09WhyWorks({ isActive = true, step = 4 }: SlideProps) {
             >
               <h4 className="text-2xl font-bold text-crimson mb-4 text-center">Political Leaders</h4>
               <BulletList items={politicalLeaders} />
-            </motion.div>
-          )}
-        </AnimatePresence>
-
-        <AnimatePresence>
-          {step >= 1 && (
-            <motion.div
-              key="outfit-image-2"
-              className="w-40 h-56 rounded-lg overflow-hidden border-2 border-crimson/50 shadow-lg"
-              initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: 30 }}
-              transition={{ duration: 0.4 }}
-              data-testid="img-outfit-2"
-            >
-              <img 
-                src={outfitImage2} 
-                alt="Clayton in State & Liberty outfit" 
-                className="w-full h-full object-cover object-top"
-              />
             </motion.div>
           )}
         </AnimatePresence>
