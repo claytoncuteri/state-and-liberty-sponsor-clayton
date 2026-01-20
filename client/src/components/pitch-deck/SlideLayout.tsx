@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import stateAndLibertyLogo from "@assets/state_and_liberty_logo_transparent_background_1768882188915.avif";
 
@@ -8,35 +9,76 @@ interface SlideLayoutProps {
   className?: string;
 }
 
+function useViewportScale() {
+  const [scale, setScale] = useState(1);
+
+  useEffect(() => {
+    const calculateScale = () => {
+      const viewportWidth = window.innerWidth;
+      const viewportHeight = window.innerHeight;
+      
+      // Design dimensions (16:9 aspect ratio)
+      const designWidth = 1920;
+      const designHeight = 1080;
+      
+      // Calculate scale to fit both dimensions
+      const scaleX = viewportWidth / designWidth;
+      const scaleY = viewportHeight / designHeight;
+      
+      // Use the smaller scale to ensure everything fits
+      const newScale = Math.min(scaleX, scaleY, 1); // Cap at 1 to avoid scaling up
+      
+      setScale(newScale);
+    };
+
+    calculateScale();
+    window.addEventListener("resize", calculateScale);
+    return () => window.removeEventListener("resize", calculateScale);
+  }, []);
+
+  return scale;
+}
+
 export function SlideLayout({ children, slideNumber, isActive = true, className = "" }: SlideLayoutProps) {
+  const scale = useViewportScale();
+  const needsScaling = scale < 1;
+
   return (
-    <motion.div
-      className={`slide-container w-full h-screen bg-gradient-to-br from-navy via-navy-light to-navy relative overflow-hidden ${className}`}
-      initial={{ opacity: 0 }}
-      animate={isActive ? { opacity: 1 } : { opacity: 0 }}
-      transition={{ duration: 0.4 }}
-    >
-      <div className="absolute top-8 left-10 right-10 z-10 flex justify-between items-center lg:top-12 lg:left-16 lg:right-16">
-        <img 
-          src={stateAndLibertyLogo} 
-          alt="State & Liberty" 
-          className="h-10 lg:h-14 brightness-0 invert"
-        />
-        <div className="text-white text-2xl lg:text-3xl font-semibold tracking-widest leading-none">
-          CLAYTON CUTERI
+    <div className="w-full h-screen bg-navy flex items-center justify-center overflow-hidden">
+      <motion.div
+        className={`slide-container bg-gradient-to-br from-navy via-navy-light to-navy relative overflow-hidden ${className}`}
+        style={{
+          width: needsScaling ? 1920 : "100%",
+          height: needsScaling ? 1080 : "100%",
+          transform: needsScaling ? `scale(${scale})` : "none",
+          transformOrigin: "center center",
+        }}
+        initial={{ opacity: 0 }}
+        animate={isActive ? { opacity: 1 } : { opacity: 0 }}
+        transition={{ duration: 0.4 }}
+      >
+        <div className="absolute top-8 left-10 right-10 z-10 flex justify-between items-center lg:top-12 lg:left-16 lg:right-16">
+          <img 
+            src={stateAndLibertyLogo} 
+            alt="State & Liberty" 
+            className="h-10 lg:h-14 brightness-0 invert"
+          />
+          <div className="text-white text-2xl lg:text-3xl font-semibold tracking-widest leading-none">
+            CLAYTON CUTERI
+          </div>
         </div>
-      </div>
 
-      <div className="content-area relative z-[2] pt-28 pb-16 px-6 h-full flex flex-col overflow-hidden lg:pt-32 lg:pb-20 lg:px-16">
-        {children}
-      </div>
-
-      {slideNumber !== undefined && (
-        <div className="absolute bottom-6 right-10 text-white/40 text-lg font-light z-10 lg:bottom-12 lg:right-16">
-          {String(slideNumber).padStart(2, "0")}
+        <div className="content-area relative z-[2] pt-28 pb-16 px-6 h-full flex flex-col overflow-hidden lg:pt-32 lg:pb-20 lg:px-16">
+          {children}
         </div>
-      )}
-    </motion.div>
+
+        {slideNumber !== undefined && (
+          <div className="absolute bottom-6 right-10 text-white/40 text-lg font-light z-10 lg:bottom-12 lg:right-16">
+            {String(slideNumber).padStart(2, "0")}
+          </div>
+        )}
+      </motion.div>
+    </div>
   );
 }
 

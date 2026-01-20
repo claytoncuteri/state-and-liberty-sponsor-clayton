@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import claytonHeadshot from "@assets/Clayton_Headshot_Suit_1768871955214.jpg";
 import stateAndLibertyLogo from "@assets/state_and_liberty_logo_transparent_background_1768882188915.avif";
@@ -6,9 +7,44 @@ interface SlideProps {
   isActive?: boolean;
 }
 
+function useViewportScale() {
+  const [scale, setScale] = useState(1);
+
+  useEffect(() => {
+    const calculateScale = () => {
+      const viewportWidth = window.innerWidth;
+      const viewportHeight = window.innerHeight;
+      const designWidth = 1920;
+      const designHeight = 1080;
+      const scaleX = viewportWidth / designWidth;
+      const scaleY = viewportHeight / designHeight;
+      const newScale = Math.min(scaleX, scaleY, 1);
+      setScale(newScale);
+    };
+
+    calculateScale();
+    window.addEventListener("resize", calculateScale);
+    return () => window.removeEventListener("resize", calculateScale);
+  }, []);
+
+  return scale;
+}
+
 export function Slide01Title({ isActive = true }: SlideProps) {
+  const scale = useViewportScale();
+  const needsScaling = scale < 1;
+
   return (
-    <div className="slide-container w-full h-full min-h-screen bg-gradient-to-br from-navy via-navy-light to-navy relative overflow-hidden flex items-center justify-center" data-testid="slide-title">
+    <div className="w-full h-screen bg-navy flex items-center justify-center overflow-hidden" data-testid="slide-title">
+      <div
+        className="slide-container bg-gradient-to-br from-navy via-navy-light to-navy relative overflow-hidden flex items-center justify-center"
+        style={{
+          width: needsScaling ? 1920 : "100%",
+          height: needsScaling ? 1080 : "100%",
+          transform: needsScaling ? `scale(${scale})` : "none",
+          transformOrigin: "center center",
+        }}
+      >
       <div className="absolute inset-0 opacity-20">
         <div 
           className="absolute inset-0 bg-cover bg-center"
@@ -86,6 +122,7 @@ export function Slide01Title({ isActive = true }: SlideProps) {
         <div>Partnership Proposal | January 2026</div>
         <div className="font-medium">Confidential</div>
       </motion.div>
+      </div>
     </div>
   );
 }
