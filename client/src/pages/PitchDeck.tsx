@@ -17,7 +17,7 @@ export default function PitchDeck() {
   const [currentStep, setCurrentStep] = useState(1);
   const [viewMode, setViewMode] = useState<"slide" | "scroll">(initialMode || "slide");
   const [isExporting, setIsExporting] = useState(false);
-  const [showWelcomeDialog, setShowWelcomeDialog] = useState(!initialMode && !shouldDownload);
+  const [showWelcomeDialog, setShowWelcomeDialog] = useState(!shouldDownload);
   const [isPortrait, setIsPortrait] = useState(false);
   const [hasTriggeredDownload, setHasTriggeredDownload] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -242,6 +242,7 @@ export default function PitchDeck() {
         onToggleViewMode={toggleViewMode}
         onExportPDF={exportToPDF}
         onFullscreen={enterFullscreen}
+        onShowTips={() => setShowWelcomeDialog(true)}
         isExporting={isExporting}
       />
 

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ChevronRight, Download, Grid, Presentation, Maximize } from "lucide-react";
+import { ChevronLeft, ChevronRight, Download, Grid, Presentation, Maximize, HelpCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 interface NavigationProps {
@@ -13,6 +13,7 @@ interface NavigationProps {
   onToggleViewMode: () => void;
   onExportPDF: () => void;
   onFullscreen: () => void;
+  onShowTips: () => void;
   isExporting?: boolean;
 }
 
@@ -26,6 +27,7 @@ export function Navigation({
   onToggleViewMode,
   onExportPDF,
   onFullscreen,
+  onShowTips,
   isExporting = false,
 }: NavigationProps) {
   const progress = ((currentSlide + 1) / totalSlides) * 100;
@@ -161,6 +163,16 @@ export function Navigation({
           data-testid="button-export-pdf"
         >
           <Download className="w-4 h-4" />
+        </Button>
+
+        <Button
+          size="icon"
+          variant="ghost"
+          onClick={onShowTips}
+          className="text-white/60"
+          data-testid="button-show-tips"
+        >
+          <HelpCircle className="w-4 h-4" />
         </Button>
       </motion.div>
 
