@@ -37,7 +37,7 @@ export function Slide09WhyWorks({ isActive = true, step = 7 }: SlideProps) {
           {step >= 1 && (
             <motion.div
               key="athletes-box"
-              className="bg-crimson/10 border-2 border-crimson rounded-xl p-6"
+              className="bg-crimson/10 border-2 border-crimson rounded-xl p-6 min-h-[280px]"
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -50 }}
@@ -81,7 +81,7 @@ export function Slide09WhyWorks({ isActive = true, step = 7 }: SlideProps) {
           {step >= 1 && (
             <motion.div
               key="political-leaders-box"
-              className="bg-crimson/10 border-2 border-crimson rounded-xl p-6"
+              className="bg-crimson/10 border-2 border-crimson rounded-xl p-6 min-h-[280px]"
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: 50 }}
@@ -111,7 +111,7 @@ export function Slide09WhyWorks({ isActive = true, step = 7 }: SlideProps) {
         {step >= 7 && (
           <motion.div
             key="philosophy-quote"
-            className="bg-crimson/15 border-l-4 border-crimson p-6 mt-4 text-center"
+            className="bg-crimson/20 border-2 border-crimson rounded-lg p-6 mt-4 text-center"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 30 }}

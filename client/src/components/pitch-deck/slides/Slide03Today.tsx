@@ -47,13 +47,13 @@ export function Slide03Today({ isActive = true }: SlideProps) {
       </div>
 
       <motion.div
-        className="mt-10 text-center py-6"
+        className="bg-crimson/20 border-2 border-crimson rounded-lg p-6 mt-6 text-center"
         initial={{ opacity: 0, y: 20 }}
         animate={isActive ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.5, delay: 0.6 }}
         data-testid="text-brand-story"
       >
-        <p className="text-2xl text-slate-light italic leading-relaxed max-w-4xl mx-auto">
+        <p className="text-xl font-bold text-white leading-relaxed max-w-4xl mx-auto">
           You've built an exceptional brand in the athletic space. The name "State & Liberty" carries inherent meaning that extends far beyond sports, and that's where this partnership comes in.
         </p>
       </motion.div>

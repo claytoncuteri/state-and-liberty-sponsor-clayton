@@ -63,14 +63,14 @@ export function Slide02Opportunity({ isActive = true, step = 4 }: SlideProps) {
         {step >= 4 && (
           <motion.div 
             key="quote"
-            className="bg-crimson/10 border-l-4 border-crimson p-6 mt-4" 
+            className="bg-crimson/20 border-2 border-crimson rounded-lg p-6 mt-4" 
             data-testid="quote-opportunity"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 20 }}
             transition={{ duration: 0.3 }}
           >
-            <p className="text-lg font-medium text-white leading-relaxed">
+            <p className="text-xl font-bold text-white leading-relaxed">
               "State & Liberty" isn't just a brand name, it's a statement of values that resonates far beyond the athletic arena.
             </p>
           </motion.div>

@@ -29,7 +29,7 @@ export function Slide04Clayton({ isActive = true }: SlideProps) {
 
       <div className="grid grid-cols-2 gap-12 mt-4 flex-1">
         <motion.div
-          className="flex justify-center items-start"
+          className="flex flex-col items-center"
           initial={{ opacity: 0, scale: 0.9 }}
           animate={isActive ? { opacity: 1, scale: 1 } : {}}
           transition={{ duration: 0.6, delay: 0.3 }}
@@ -40,6 +40,11 @@ export function Slide04Clayton({ isActive = true }: SlideProps) {
               alt="Clayton Cuteri Professional Headshot"
               className="w-full h-full object-cover"
             />
+          </div>
+          <div className="bg-crimson/20 border-2 border-crimson rounded-lg p-4 mt-4 text-center" data-testid="quote-clayton">
+            <p className="text-lg font-bold text-white leading-relaxed">
+              "What you put IN your body matters. What you put ON your body matters. Both require the same discipline, quality, and freedom of choice."
+            </p>
           </div>
         </motion.div>
 
@@ -54,12 +59,6 @@ export function Slide04Clayton({ isActive = true }: SlideProps) {
           <h4 className="text-xl font-bold text-white mb-3 mt-4">The Connection</h4>
           <BulletList items={connection} />
         </motion.div>
-      </div>
-
-      <div className="bg-crimson/10 border-l-4 border-crimson p-5 mt-3" data-testid="quote-clayton">
-        <p className="text-xl font-medium text-white leading-relaxed">
-          "What you put IN your body matters. What you put ON your body matters. Both require the same discipline, quality, and freedom of choice."
-        </p>
       </div>
     </SlideLayout>
   );
