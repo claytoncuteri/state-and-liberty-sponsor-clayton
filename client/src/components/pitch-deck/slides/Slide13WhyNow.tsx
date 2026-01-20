@@ -36,7 +36,7 @@ export function Slide13WhyNow({ isActive = true }: SlideProps) {
           animate={isActive ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.3 }}
         >
-          <h4 className="text-lg lg:text-xl font-bold text-white mb-3">Why Clayton</h4>
+          <h4 className="text-lg lg:text-xl font-bold text-white mb-3">Why Clayton Cuteri</h4>
           <BulletList items={whyClayton} />
         </motion.div>
 

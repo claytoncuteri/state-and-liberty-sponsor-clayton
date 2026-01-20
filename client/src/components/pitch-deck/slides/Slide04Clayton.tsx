@@ -8,6 +8,7 @@ interface SlideProps {
 
 export function Slide04Clayton({ isActive = true }: SlideProps) {
   const background = [
+    "VP of Engineering & AI at Amara Social",
     "Co-founder & Secretary General, American Congress Party",
     "Advocate for purifying America's food source",
     "Mission: Restoring health sovereignty and freedom",
@@ -55,8 +56,8 @@ export function Slide04Clayton({ isActive = true }: SlideProps) {
         </motion.div>
       </div>
 
-      <div className="bg-crimson/10 border-l-4 border-crimson p-4 lg:p-6 mt-4" data-testid="quote-clayton">
-        <p className="text-base lg:text-lg font-medium text-white leading-relaxed">
+      <div className="bg-crimson/10 border-l-4 border-crimson p-5 lg:p-8 mt-4" data-testid="quote-clayton">
+        <p className="text-xl lg:text-2xl font-medium text-white leading-relaxed">
           "What you put IN your body matters. What you put ON your body matters. Both require the same discipline, quality, and freedom of choice."
         </p>
       </div>

@@ -15,7 +15,7 @@ export default function LandingPage() {
     setLocation("/presentation?mode=scroll");
   };
 
-  const handleDownloadPDF = async () => {
+  const handleDownloadPDF = () => {
     setLocation("/presentation?download=true");
   };
 
@@ -54,7 +54,7 @@ export default function LandingPage() {
         </h1>
         
         <p className="text-lg lg:text-xl text-slate-light mb-12 max-w-xl" data-testid="text-subtitle">
-          A comprehensive sponsorship opportunity connecting premium athletic apparel with 70M+ monthly political media impressions
+          A comprehensive sponsorship opportunity connecting premium athletic apparel with 70M+ monthly social media impressions
         </p>
 
         <div className="flex flex-col sm:flex-row flex-wrap gap-4 w-full sm:w-auto" data-testid="cta-container">

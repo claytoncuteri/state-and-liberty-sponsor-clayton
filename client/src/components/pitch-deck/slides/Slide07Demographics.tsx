@@ -76,7 +76,7 @@ export function Slide07Demographics({ isActive = true }: SlideProps) {
 
       <div className="bg-crimson/10 border-l-4 border-crimson p-4 mt-4" data-testid="quote-demographics">
         <p className="text-base lg:text-lg font-semibold text-white">
-          "This audience cares about what they put IN their body and ON their body."
+          Prime spending power with disposable income and brand loyalty — the customers who invest in quality.
         </p>
       </div>
     </SlideLayout>

@@ -53,7 +53,7 @@ export function Slide08Content({ isActive = true }: SlideProps) {
               transition={{ duration: 0.5, delay: 0.5 }}
               data-testid="img-store-photo"
             >
-              <img src={storePhoto} alt="Clayton at State & Liberty Store" className="w-full h-24 lg:h-32 object-cover" />
+              <img src={storePhoto} alt="Clayton at State & Liberty Store" className="w-full h-24 lg:h-32 object-cover object-top" />
             </motion.div>
             <motion.div
               className="rounded-lg overflow-hidden border-2 border-white/20"
@@ -62,7 +62,7 @@ export function Slide08Content({ isActive = true }: SlideProps) {
               transition={{ duration: 0.5, delay: 0.6 }}
               data-testid="img-boat-photo"
             >
-              <img src={boatPhoto} alt="Clayton on Boat" className="w-full h-24 lg:h-32 object-cover" />
+              <img src={boatPhoto} alt="Clayton on Boat" className="w-full h-24 lg:h-32 object-cover object-top" />
             </motion.div>
           </div>
         </motion.div>
