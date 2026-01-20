@@ -253,7 +253,7 @@ export default function PitchDeck() {
   return (
     <div
       ref={containerRef}
-      className="min-h-screen bg-navy overflow-hidden"
+      className="h-screen bg-navy overflow-hidden"
       data-testid="pitch-deck-container"
     >
       <Navigation

@@ -11,7 +11,7 @@ interface SlideLayoutProps {
 export function SlideLayout({ children, slideNumber, isActive = true, className = "" }: SlideLayoutProps) {
   return (
     <motion.div
-      className={`slide-container w-full h-full min-h-screen bg-gradient-to-br from-navy via-navy-light to-navy relative overflow-hidden ${className}`}
+      className={`slide-container w-full h-screen bg-gradient-to-br from-navy via-navy-light to-navy relative overflow-hidden ${className}`}
       initial={{ opacity: 0 }}
       animate={isActive ? { opacity: 1 } : { opacity: 0 }}
       transition={{ duration: 0.4 }}
@@ -27,7 +27,7 @@ export function SlideLayout({ children, slideNumber, isActive = true, className 
         </div>
       </div>
 
-      <div className="content-area relative z-[2] pt-28 pb-16 px-6 h-full flex flex-col lg:pt-40 lg:pb-24 lg:px-16">
+      <div className="content-area relative z-[2] pt-28 pb-16 px-6 h-full flex flex-col overflow-hidden lg:pt-32 lg:pb-20 lg:px-16">
         {children}
       </div>
 
