@@ -1,0 +1,16 @@
+export { Slide01Title } from "./Slide01Title";
+export { Slide02Opportunity } from "./Slide02Opportunity";
+export { Slide03Today } from "./Slide03Today";
+export { Slide04Clayton } from "./Slide04Clayton";
+export { Slide05Numbers } from "./Slide05Numbers";
+export { Slide06Engagement } from "./Slide06Engagement";
+export { Slide07Demographics } from "./Slide07Demographics";
+export { Slide08Content } from "./Slide08Content";
+export { Slide09WhyWorks } from "./Slide09WhyWorks";
+export { Slide10Market } from "./Slide10Market";
+export { Slide11Tiers } from "./Slide11Tiers";
+export { Slide12QuickWins } from "./Slide12QuickWins";
+export { Slide13WhyNow } from "./Slide13WhyNow";
+export { Slide14FAQ } from "./Slide14FAQ";
+export { Slide15Metrics } from "./Slide15Metrics";
+export { Slide16Analytics } from "./Slide16Analytics";

@@ -11,6 +11,13 @@ export default {
         sm: ".1875rem", /* 3px */
       },
       colors: {
+        navy: {
+          DEFAULT: "hsl(var(--navy) / <alpha-value>)",
+          light: "hsl(var(--navy-light) / <alpha-value>)",
+        },
+        crimson: "hsl(var(--crimson) / <alpha-value>)",
+        "slate-light": "hsl(var(--slate-light) / <alpha-value>)",
+        "slate-text": "hsl(var(--slate-text) / <alpha-value>)",
         // Flat / base colors (regular buttons)
         background: "hsl(var(--background) / <alpha-value>)",
         foreground: "hsl(var(--foreground) / <alpha-value>)",

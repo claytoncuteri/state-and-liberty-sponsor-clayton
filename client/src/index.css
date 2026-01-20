@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Pitch Deck Custom Colors */
+:root {
+  --navy: 218 50% 10%;
+  --navy-light: 218 40% 18%;
+  --crimson: 351 80% 44%;
+  --slate-light: 220 15% 70%;
+  --slate-text: 220 10% 80%;
+}
+
 /* LIGHT MODE */
 :root {
   --button-outline: rgba(0,0,0, .10);
