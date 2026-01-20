@@ -17,14 +17,14 @@ export function SlideLayout({ children, slideNumber, isActive = true, className 
       transition={{ duration: 0.4 }}
     >
       <div className="absolute top-8 left-10 right-10 z-10 flex justify-between items-center lg:top-12 lg:left-16 lg:right-16">
-        <div className="text-white text-lg font-semibold tracking-widest lg:text-xl">
-          CLAYTON CUTERI
-        </div>
         <img 
           src={stateAndLibertyLogo} 
           alt="State & Liberty" 
           className="h-10 lg:h-14 brightness-0 invert"
         />
+        <div className="text-white text-lg font-semibold tracking-widest lg:text-xl">
+          CLAYTON CUTERI
+        </div>
       </div>
 
       <div className="content-area relative z-[2] pt-28 pb-16 px-6 h-full flex flex-col lg:pt-40 lg:pb-24 lg:px-16">

@@ -25,7 +25,6 @@ import {
   Slide16Analytics,
 } from "@/components/pitch-deck/slides";
 import { useToast } from "@/hooks/use-toast";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Grid, Maximize, Download, RotateCcw } from "lucide-react";
 
@@ -325,52 +324,42 @@ export default function PitchDeck() {
         </div>
       )}
 
-      <Dialog open={showWelcomeDialog} onOpenChange={setShowWelcomeDialog}>
-        <DialogContent className="bg-navy border-white/20 text-white max-w-md" data-testid="dialog-welcome">
-          <DialogHeader>
-            <DialogTitle className="text-2xl font-bold text-white">Welcome to the Pitch Deck</DialogTitle>
-            <DialogDescription className="text-slate-light">
-              Use the controls at the bottom to navigate through the presentation.
-            </DialogDescription>
-          </DialogHeader>
-          <div className="space-y-4 mt-4">
-            <div className="flex items-center gap-4 p-3 bg-white/5 rounded-lg">
-              <div className="p-2 bg-white/10 rounded-full">
-                <Grid className="w-5 h-5 text-crimson" />
-              </div>
-              <div>
-                <p className="font-medium">Grid View</p>
-                <p className="text-sm text-slate-light">Switch to scrollable overview of all slides</p>
-              </div>
-            </div>
-            <div className="flex items-center gap-4 p-3 bg-white/5 rounded-lg">
-              <div className="p-2 bg-white/10 rounded-full">
-                <Maximize className="w-5 h-5 text-crimson" />
-              </div>
-              <div>
-                <p className="font-medium">Fullscreen</p>
-                <p className="text-sm text-slate-light">Enter fullscreen presentation mode</p>
-              </div>
-            </div>
-            <div className="flex items-center gap-4 p-3 bg-white/5 rounded-lg">
-              <div className="p-2 bg-white/10 rounded-full">
-                <Download className="w-5 h-5 text-crimson" />
-              </div>
-              <div>
-                <p className="font-medium">Download PDF</p>
-                <p className="text-sm text-slate-light">Export the full presentation as a PDF</p>
-              </div>
-            </div>
-          </div>
-          <Button 
-            onClick={() => setShowWelcomeDialog(false)} 
-            className="w-full mt-4 bg-crimson text-white"
-            data-testid="button-start-presentation"
+      <AnimatePresence>
+        {showWelcomeDialog && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 20 }}
+            transition={{ duration: 0.3 }}
+            className="fixed bottom-20 left-4 z-50 bg-navy/95 border border-white/20 rounded-lg p-4 max-w-xs shadow-xl backdrop-blur-sm"
+            data-testid="popup-welcome"
           >
-            Start Presentation
-          </Button>
-        </DialogContent>
-      </Dialog>
+            <p className="text-white text-sm font-medium mb-3">Navigation Tips</p>
+            <div className="space-y-2 text-xs">
+              <div className="flex items-center gap-2 text-slate-light">
+                <Grid className="w-4 h-4 text-crimson flex-shrink-0" />
+                <span>Grid view</span>
+              </div>
+              <div className="flex items-center gap-2 text-slate-light">
+                <Maximize className="w-4 h-4 text-crimson flex-shrink-0" />
+                <span>Fullscreen</span>
+              </div>
+              <div className="flex items-center gap-2 text-slate-light">
+                <Download className="w-4 h-4 text-crimson flex-shrink-0" />
+                <span>Download PDF</span>
+              </div>
+            </div>
+            <Button 
+              onClick={() => setShowWelcomeDialog(false)} 
+              size="sm"
+              className="w-full mt-3 bg-crimson text-white text-xs"
+              data-testid="button-got-it"
+            >
+              Got it
+            </Button>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {isPortrait && (
         <div className="fixed inset-0 bg-navy z-[200] flex flex-col items-center justify-center p-8" data-testid="portrait-overlay">
