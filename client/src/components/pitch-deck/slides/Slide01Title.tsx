@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import claytonHeadshot from "@assets/Clayton_Headshot_Suit_1768871955214.jpg";
-import stateAndLibertyLogo from "@assets/State_and_liberty_logo_1768872767045.png";
+import stateAndLibertyLogo from "@assets/state_and_liberty_logo_transparent_background_1768882188915.avif";
 
 interface SlideProps {
   isActive?: boolean;
