@@ -83,8 +83,7 @@ export default function LandingPage() {
             onClick={handleDownloadPDF}
             size="lg"
             variant="outline"
-            className="border-white/30 text-white/50 gap-3 bg-white/5 backdrop-blur-sm cursor-not-allowed"
-            disabled
+            className="border-white/30 text-white gap-3 bg-white/5 backdrop-blur-sm"
             data-testid="button-download-pdf"
           >
             <Download className="w-5 h-5" />

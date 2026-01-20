@@ -156,8 +156,8 @@ export function Navigation({
           size="icon"
           variant="ghost"
           onClick={onExportPDF}
-          disabled
-          className="text-white/30 cursor-not-allowed"
+          disabled={isExporting}
+          className="text-white/60"
           data-testid="button-export-pdf"
         >
           <Download className="w-4 h-4" />
