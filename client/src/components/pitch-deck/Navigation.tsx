@@ -156,11 +156,11 @@ export function Navigation({
           size="icon"
           variant="ghost"
           onClick={onExportPDF}
-          disabled={isExporting}
-          className="text-white/60 disabled:opacity-50"
+          disabled
+          className="text-white/30 cursor-not-allowed"
           data-testid="button-export-pdf"
         >
-          <Download className={`w-4 h-4 ${isExporting ? "animate-pulse" : ""}`} />
+          <Download className="w-4 h-4" />
         </Button>
       </motion.div>
 

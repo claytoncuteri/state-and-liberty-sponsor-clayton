@@ -22,7 +22,7 @@ export function SlideLayout({ children, slideNumber, isActive = true, className 
           alt="State & Liberty" 
           className="h-10 lg:h-14 brightness-0 invert"
         />
-        <div className="text-white text-lg font-semibold tracking-widest lg:text-xl">
+        <div className="text-white text-2xl lg:text-3xl font-semibold tracking-widest leading-none">
           CLAYTON CUTERI
         </div>
       </div>

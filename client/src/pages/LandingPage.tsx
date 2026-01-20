@@ -36,8 +36,8 @@ export default function LandingPage() {
             className="h-16 lg:h-20 brightness-0 invert"
             data-testid="img-logo"
           />
-          <div className="h-12 w-px bg-white/30" />
-          <span className="text-white text-xl lg:text-2xl font-semibold tracking-widest" data-testid="text-brand-name">
+          <div className="h-12 lg:h-16 w-px bg-white/30" />
+          <span className="text-white text-3xl lg:text-4xl font-semibold tracking-widest leading-none" data-testid="text-brand-name">
             CLAYTON CUTERI
           </span>
         </div>
@@ -83,7 +83,8 @@ export default function LandingPage() {
             onClick={handleDownloadPDF}
             size="lg"
             variant="outline"
-            className="border-white/30 text-white gap-3 bg-white/5 backdrop-blur-sm"
+            className="border-white/30 text-white/50 gap-3 bg-white/5 backdrop-blur-sm cursor-not-allowed"
+            disabled
             data-testid="button-download-pdf"
           >
             <Download className="w-5 h-5" />
