@@ -246,31 +246,45 @@ export default function PitchDeck() {
       />
 
       {viewMode === "slide" ? (
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={currentSlide}
-            className="w-full h-screen"
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -50 }}
-            transition={{ duration: 0.4, ease: "easeInOut" }}
-          >
-            {slides.map((slide, index) => {
-              const SlideComponent = slide.component;
+        isExporting ? (
+          <div className="w-full h-screen">
+            {(() => {
+              const SlideComponent = slides[currentSlide].component;
               return (
-                <div
-                  key={index}
-                  className={index === currentSlide ? "block" : "hidden"}
-                >
-                  <SlideComponent 
-                    isActive={index === currentSlide} 
-                    step={index === currentSlide ? currentStep : slide.steps}
-                  />
-                </div>
+                <SlideComponent 
+                  isActive={true}
+                  step={currentStep}
+                />
               );
-            })}
-          </motion.div>
-        </AnimatePresence>
+            })()}
+          </div>
+        ) : (
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentSlide}
+              className="w-full h-screen"
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -50 }}
+              transition={{ duration: 0.4, ease: "easeInOut" }}
+            >
+              {slides.map((slide, index) => {
+                const SlideComponent = slide.component;
+                return (
+                  <div
+                    key={index}
+                    className={index === currentSlide ? "block" : "hidden"}
+                  >
+                    <SlideComponent 
+                      isActive={index === currentSlide} 
+                      step={index === currentSlide ? currentStep : slide.steps}
+                    />
+                  </div>
+                );
+              })}
+            </motion.div>
+          </AnimatePresence>
+        )
       ) : (
         <div className="overflow-y-auto h-screen scroll-smooth">
           {slides.map((slide, index) => {
