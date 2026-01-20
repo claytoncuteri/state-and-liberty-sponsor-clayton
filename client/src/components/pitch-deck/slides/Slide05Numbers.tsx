@@ -14,7 +14,7 @@ export function Slide05Numbers({ isActive = true, step = 6 }: SlideProps) {
       <SlideTitle>70M+ Monthly Cross-Platform Reach</SlideTitle>
       <SlideSubtitle>The Numbers Speak for Themselves</SlideSubtitle>
 
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-4 lg:gap-6 mt-4">
+      <div className="grid grid-cols-3 gap-6 mt-4">
         <AnimatePresence>
           {step >= 2 && (
             <motion.div
@@ -99,7 +99,7 @@ export function Slide05Numbers({ isActive = true, step = 6 }: SlideProps) {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9 }}
               transition={{ duration: 0.3 }}
-              className="col-span-2 md:col-span-1"
+              className="col-span-1"
             >
               <StatBox
                 number={70000000}
@@ -119,15 +119,15 @@ export function Slide05Numbers({ isActive = true, step = 6 }: SlideProps) {
         {step >= 6 && (
           <motion.div
             key="opportunity-callout"
-            className="mt-4 p-4 lg:p-6 bg-crimson/10 rounded-xl text-center border border-crimson/30"
+            className="mt-4 p-6 bg-crimson/10 rounded-xl text-center border border-crimson/30"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 20 }}
             transition={{ duration: 0.3 }}
             data-testid="text-opportunity-callout"
           >
-            <p className="text-lg lg:text-xl font-bold text-crimson mb-2">IMMEDIATE OPPORTUNITY</p>
-            <p className="text-base lg:text-lg text-white">
+            <p className="text-xl font-bold text-crimson mb-2">IMMEDIATE OPPORTUNITY</p>
+            <p className="text-lg text-white">
               Appearing on <strong>Digital Social Hour</strong> (Top 30 podcast) <strong>THIS FRIDAY (1/23)</strong>
               <span className="text-slate-light ml-2">| Host: 12M Instagram followers</span>
             </p>

@@ -20,13 +20,13 @@ export function Slide08Content({ isActive = true }: SlideProps) {
       <SlideTitle>Viral Performance in Action</SlideTitle>
       <SlideSubtitle>Proven Track Record of High-Impact Content</SlideSubtitle>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 mt-4 flex-1">
+      <div className="grid grid-cols-2 gap-10 mt-4 flex-1">
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           animate={isActive ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.3 }}
         >
-          <h4 className="text-lg lg:text-xl font-bold text-white mb-3">Top-Performing Content</h4>
+          <h4 className="text-xl font-bold text-white mb-3">Top-Performing Content</h4>
           
           <div className="space-y-2">
             <div className="bg-white/5 rounded-lg p-3 overflow-visible hover-elevate" data-testid="content-youtube">
@@ -53,7 +53,7 @@ export function Slide08Content({ isActive = true }: SlideProps) {
               transition={{ duration: 0.5, delay: 0.5 }}
               data-testid="img-store-photo"
             >
-              <img src={storePhoto} alt="Clayton at State & Liberty Store" className="w-full h-24 lg:h-32 object-cover object-top" />
+              <img src={storePhoto} alt="Clayton at State & Liberty Store" className="w-full h-32 object-cover object-top" />
             </motion.div>
             <motion.div
               className="rounded-lg overflow-hidden border-2 border-white/20"
@@ -62,7 +62,7 @@ export function Slide08Content({ isActive = true }: SlideProps) {
               transition={{ duration: 0.5, delay: 0.6 }}
               data-testid="img-boat-photo"
             >
-              <img src={boatPhoto} alt="Clayton on Boat" className="w-full h-24 lg:h-32 object-cover object-top" />
+              <img src={boatPhoto} alt="Clayton on Boat" className="w-full h-32 object-cover object-top" />
             </motion.div>
           </div>
         </motion.div>
@@ -72,7 +72,7 @@ export function Slide08Content({ isActive = true }: SlideProps) {
           animate={isActive ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.4 }}
         >
-          <h4 className="text-lg lg:text-xl font-bold text-white mb-3">Upcoming Media</h4>
+          <h4 className="text-xl font-bold text-white mb-3">Upcoming Media</h4>
 
           <div className="bg-crimson/15 border-2 border-crimson rounded-lg p-4 mb-4">
             <p className="text-base font-bold text-crimson mb-1">THIS FRIDAY (1/23)</p>
@@ -85,7 +85,7 @@ export function Slide08Content({ isActive = true }: SlideProps) {
             <p className="text-sm text-slate-light">Additional top podcast appearance scheduled</p>
           </div>
 
-          <h4 className="text-lg lg:text-xl font-bold text-white mb-3">Content Themes</h4>
+          <h4 className="text-xl font-bold text-white mb-3">Content Themes</h4>
           <BulletList items={contentThemes} />
         </motion.div>
       </div>

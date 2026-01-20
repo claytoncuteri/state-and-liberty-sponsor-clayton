@@ -9,7 +9,11 @@ interface SlideLayoutProps {
   className?: string;
 }
 
-function useViewportScale() {
+// Fixed design dimensions - slides are always this size, then scaled to fit
+const DESIGN_WIDTH = 1920;
+const DESIGN_HEIGHT = 1080;
+
+export function useViewportScale() {
   const [scale, setScale] = useState(1);
 
   useEffect(() => {
@@ -17,18 +21,12 @@ function useViewportScale() {
       const viewportWidth = window.innerWidth;
       const viewportHeight = window.innerHeight;
       
-      // Design dimensions (16:9 aspect ratio)
-      const designWidth = 1920;
-      const designHeight = 1080;
+      // Calculate scale to fit viewport while maintaining aspect ratio
+      const scaleX = viewportWidth / DESIGN_WIDTH;
+      const scaleY = viewportHeight / DESIGN_HEIGHT;
       
-      // Calculate scale to fit both dimensions
-      const scaleX = viewportWidth / designWidth;
-      const scaleY = viewportHeight / designHeight;
-      
-      // Use the smaller scale to ensure everything fits
-      const newScale = Math.min(scaleX, scaleY, 1); // Cap at 1 to avoid scaling up
-      
-      setScale(newScale);
+      // Use the smaller scale to ensure everything fits (letterbox/pillarbox)
+      setScale(Math.min(scaleX, scaleY));
     };
 
     calculateScale();
@@ -41,39 +39,41 @@ function useViewportScale() {
 
 export function SlideLayout({ children, slideNumber, isActive = true, className = "" }: SlideLayoutProps) {
   const scale = useViewportScale();
-  const needsScaling = scale < 1;
 
   return (
     <div className="w-full h-screen bg-navy flex items-center justify-center overflow-hidden">
       <motion.div
         className={`slide-container bg-gradient-to-br from-navy via-navy-light to-navy relative overflow-hidden ${className}`}
         style={{
-          width: needsScaling ? 1920 : "100%",
-          height: needsScaling ? 1080 : "100%",
-          transform: needsScaling ? `scale(${scale})` : "none",
+          width: DESIGN_WIDTH,
+          height: DESIGN_HEIGHT,
+          transform: `scale(${scale})`,
           transformOrigin: "center center",
         }}
         initial={{ opacity: 0 }}
         animate={isActive ? { opacity: 1 } : { opacity: 0 }}
         transition={{ duration: 0.4 }}
       >
-        <div className="absolute top-8 left-10 right-10 z-10 flex justify-between items-center lg:top-12 lg:left-16 lg:right-16">
+        {/* Header - fixed positions for 1920x1080 */}
+        <div className="absolute top-12 left-16 right-16 z-10 flex justify-between items-center">
           <img 
             src={stateAndLibertyLogo} 
             alt="State & Liberty" 
-            className="h-10 lg:h-14 brightness-0 invert"
+            className="h-14 brightness-0 invert"
           />
-          <div className="text-white text-2xl lg:text-3xl font-semibold tracking-widest leading-none">
+          <div className="text-white text-3xl font-semibold tracking-widest leading-none">
             CLAYTON CUTERI
           </div>
         </div>
 
-        <div className="content-area relative z-[2] pt-28 pb-16 px-6 h-full flex flex-col overflow-hidden lg:pt-32 lg:pb-20 lg:px-16">
+        {/* Content area - fixed padding for 1920x1080 */}
+        <div className="content-area relative z-[2] pt-32 pb-20 px-16 h-full flex flex-col overflow-hidden">
           {children}
         </div>
 
+        {/* Slide number */}
         {slideNumber !== undefined && (
-          <div className="absolute bottom-6 right-10 text-white/40 text-lg font-light z-10 lg:bottom-12 lg:right-16">
+          <div className="absolute bottom-12 right-16 text-white/40 text-lg font-light z-10">
             {String(slideNumber).padStart(2, "0")}
           </div>
         )}
@@ -85,7 +85,7 @@ export function SlideLayout({ children, slideNumber, isActive = true, className 
 export function AccentLine() {
   return (
     <motion.div
-      className="w-24 lg:w-32 h-1 bg-crimson mb-8"
+      className="w-32 h-1 bg-crimson mb-8"
       initial={{ width: 0 }}
       animate={{ width: "8rem" }}
       transition={{ duration: 0.6, ease: "easeOut" }}
@@ -96,7 +96,7 @@ export function AccentLine() {
 export function SlideTitle({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   return (
     <motion.h2
-      className={`text-4xl lg:text-6xl font-black text-white mb-4 lg:mb-6 leading-tight tracking-tight ${className}`}
+      className={`text-6xl font-black text-white mb-6 leading-tight tracking-tight ${className}`}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.1 }}
@@ -109,7 +109,7 @@ export function SlideTitle({ children, className = "" }: { children: React.React
 export function SlideSubtitle({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   return (
     <motion.h3
-      className={`text-xl lg:text-2xl font-light text-slate-light mb-8 lg:mb-12 leading-relaxed ${className}`}
+      className={`text-2xl font-light text-slate-light mb-12 leading-relaxed ${className}`}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.2 }}
@@ -125,7 +125,7 @@ export function BulletList({ items, className = "" }: { items: string[]; classNa
       {items.map((item, index) => (
         <motion.li
           key={index}
-          className="text-slate-text text-base lg:text-lg leading-relaxed pl-6 relative"
+          className="text-slate-text text-lg leading-relaxed pl-6 relative"
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
@@ -141,7 +141,7 @@ export function BulletList({ items, className = "" }: { items: string[]; classNa
 export function QuoteBox({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   return (
     <motion.div
-      className={`bg-crimson/10 border-l-4 border-crimson p-4 lg:p-6 ${className}`}
+      className={`bg-crimson/10 border-l-4 border-crimson p-6 ${className}`}
       initial={{ opacity: 0, x: -20 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.5, delay: 0.4 }}

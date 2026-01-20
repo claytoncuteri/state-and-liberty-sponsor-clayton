@@ -22,8 +22,8 @@ function QAItem({ question, answer, delay, isActive }: QAItemProps) {
       transition={{ duration: 0.5, delay }}
       data-testid={`faq-${testId}`}
     >
-      <p className="text-base lg:text-lg font-bold text-crimson mb-2">{question}</p>
-      <p className="text-sm lg:text-base text-slate-text leading-relaxed" dangerouslySetInnerHTML={{ __html: answer }} />
+      <p className="text-lg font-bold text-crimson mb-2">{question}</p>
+      <p className="text-base text-slate-text leading-relaxed" dangerouslySetInnerHTML={{ __html: answer }} />
     </motion.div>
   );
 }

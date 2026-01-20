@@ -20,13 +20,13 @@ export function Slide10Market({ isActive = true }: SlideProps) {
       <SlideTitle>Opening a New Market Segment</SlideTitle>
       <SlideSubtitle>Strategic Vertical Expansion</SlideSubtitle>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 mt-4 flex-1">
+      <div className="grid grid-cols-2 gap-10 mt-4 flex-1">
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           animate={isActive ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.3 }}
         >
-          <h4 className="text-lg lg:text-xl font-bold text-white mb-3">Why This Matters for State & Liberty</h4>
+          <h4 className="text-xl font-bold text-white mb-3">Why This Matters for State & Liberty</h4>
           <BulletList items={whyMatters} />
         </motion.div>
 
@@ -35,10 +35,10 @@ export function Slide10Market({ isActive = true }: SlideProps) {
           animate={isActive ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.4 }}
         >
-          <h4 className="text-lg lg:text-xl font-bold text-white mb-3">Market Opportunity</h4>
+          <h4 className="text-xl font-bold text-white mb-3">Market Opportunity</h4>
           
           <div className="bg-crimson/10 border-2 border-crimson rounded-lg p-4 mb-4">
-            <p className="text-base lg:text-lg text-white font-semibold mb-2">The Political Professional</p>
+            <p className="text-lg text-white font-semibold mb-2">The Political Professional</p>
             <p className="text-sm text-slate-light leading-relaxed">
               A growing demographic of leaders, advocates, and media personalities who value performance, quality, and the principles of freedom your brand name embodies.
             </p>

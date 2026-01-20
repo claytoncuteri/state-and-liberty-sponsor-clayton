@@ -20,20 +20,20 @@ export function Slide07Demographics({ isActive = true }: SlideProps) {
       <SlideTitle>Your Dream Demographic</SlideTitle>
       <SlideSubtitle>Perfect Audience Alignment with State & Liberty</SlideSubtitle>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 mt-4 flex-1">
+      <div className="grid grid-cols-2 gap-10 mt-4 flex-1">
         <div className="space-y-4">
           <motion.div
-            className="bg-crimson/10 border-2 border-crimson rounded-xl p-4 lg:p-6 text-center"
+            className="bg-crimson/10 border-2 border-crimson rounded-xl p-6 text-center"
             initial={{ opacity: 0, x: -30 }}
             animate={isActive ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.3 }}
             data-testid="stat-gender-split"
           >
-            <p className="text-base lg:text-lg text-slate-light mb-2">Gender Split</p>
-            <div className="text-4xl lg:text-5xl font-black text-crimson" data-testid="text-gender-value">
+            <p className="text-lg text-slate-light mb-2">Gender Split</p>
+            <div className="text-5xl font-black text-crimson" data-testid="text-gender-value">
               <AnimatedNumber value={74.8} suffix="%" isActive={isActive} />
             </div>
-            <p className="text-lg lg:text-xl font-bold text-white mt-1">Male Audience</p>
+            <p className="text-xl font-bold text-white mt-1">Male Audience</p>
             <p className="text-xs text-slate-light italic">(Rare in social media)</p>
           </motion.div>
 
@@ -44,7 +44,7 @@ export function Slide07Demographics({ isActive = true }: SlideProps) {
             transition={{ duration: 0.5, delay: 0.4 }}
           >
             <p className="text-base text-slate-light mb-1">Discovery Potential</p>
-            <div className="text-3xl lg:text-4xl font-black text-crimson">
+            <div className="text-4xl font-black text-crimson">
               <AnimatedNumber value={93.3} suffix="%" isActive={isActive} />
             </div>
             <p className="text-sm text-white mt-1">Non-followers see content</p>
@@ -56,12 +56,12 @@ export function Slide07Demographics({ isActive = true }: SlideProps) {
           animate={isActive ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.5 }}
         >
-          <h4 className="text-lg lg:text-xl font-bold text-white mb-3">Age Demographics</h4>
+          <h4 className="text-xl font-bold text-white mb-3">Age Demographics</h4>
           <div className="bg-white/5 rounded-xl p-4 mb-4">
-            <div className="text-3xl lg:text-4xl font-black text-crimson mb-1">
+            <div className="text-4xl font-black text-crimson mb-1">
               <AnimatedNumber value={64} suffix="%" isActive={isActive} />
             </div>
-            <p className="text-base lg:text-lg text-white mb-2">Ages 25-44</p>
+            <p className="text-lg text-white mb-2">Ages 25-44</p>
             <div className="text-slate-light text-sm flex gap-4">
               <span>25-34: 30.3%</span>
               <span>35-44: 29.9%</span>
@@ -69,13 +69,13 @@ export function Slide07Demographics({ isActive = true }: SlideProps) {
             </div>
           </div>
 
-          <h4 className="text-lg lg:text-xl font-bold text-white mb-3">Audience Values</h4>
+          <h4 className="text-xl font-bold text-white mb-3">Audience Values</h4>
           <BulletList items={audienceValues} />
         </motion.div>
       </div>
 
       <div className="bg-crimson/10 border-l-4 border-crimson p-4 mt-4" data-testid="quote-demographics">
-        <p className="text-base lg:text-lg font-semibold text-white">
+        <p className="text-lg font-semibold text-white">
           Prime spending power with disposable income and brand loyalty — the customers who invest in quality.
         </p>
       </div>

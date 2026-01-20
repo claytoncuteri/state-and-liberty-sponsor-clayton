@@ -52,7 +52,7 @@ export function Slide11Tiers({ isActive = true }: SlideProps) {
         </p>
       </motion.div>
 
-      <div className="space-y-4 lg:space-y-6">
+      <div className="space-y-6">
         <TierCard
           title="TIER 1: FOUNDATIONAL"
           value="$0-5K value"

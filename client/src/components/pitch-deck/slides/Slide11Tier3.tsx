@@ -24,7 +24,7 @@ export function Slide11Tier3({ isActive = true }: SlideProps) {
 
       <div className="flex-1 flex flex-col justify-center">
         <motion.div
-          className="bg-crimson/10 rounded-xl p-6 lg:p-8 border-2 border-crimson max-w-3xl mx-auto w-full relative"
+          className="bg-crimson/10 rounded-xl p-8 border-2 border-crimson max-w-3xl mx-auto w-full relative"
           initial={{ opacity: 0, y: 30 }}
           animate={isActive ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.3 }}
@@ -35,10 +35,10 @@ export function Slide11Tier3({ isActive = true }: SlideProps) {
             RECOMMENDED
           </div>
 
-          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-4 gap-2 mt-2">
-            <h3 className="text-2xl lg:text-3xl font-black text-white">TIER 3</h3>
+          <div className="flex flex-row items-center justify-between mb-4 gap-2 mt-2">
+            <h3 className="text-3xl font-black text-white">TIER 3</h3>
             <div className="text-right">
-              <div className="text-3xl lg:text-4xl font-black text-crimson">$15-25K</div>
+              <div className="text-4xl font-black text-crimson">$15-25K</div>
               <div className="text-sm text-slate-light">per month</div>
             </div>
           </div>
