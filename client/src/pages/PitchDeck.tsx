@@ -337,6 +337,13 @@ export default function PitchDeck() {
             <p className="text-white text-sm font-medium mb-3">Navigation Tips</p>
             <div className="space-y-2 text-xs">
               <div className="flex items-center gap-2 text-slate-light">
+                <div className="flex gap-1">
+                  <span className="bg-white/20 px-1.5 py-0.5 rounded text-white font-mono">←</span>
+                  <span className="bg-white/20 px-1.5 py-0.5 rounded text-white font-mono">→</span>
+                </div>
+                <span>Navigate slides</span>
+              </div>
+              <div className="flex items-center gap-2 text-slate-light">
                 <Grid className="w-4 h-4 text-crimson flex-shrink-0" />
                 <span>Grid view</span>
               </div>
